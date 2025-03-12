@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Logo">
+      Swopnab.</a>
+
+    <nav class="navbar"> 
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!--Home Section-->
+  <section class="home">
+    <div class="home-content">
+      <h1>Hi, I'm Swopnab</h1>
+      <h3>Full-Stack Developer</h3>
+      <p>Gang Gang Bitches</p>
+      <div class="btn-box">
+        <a href="#">Hire Me</a>
+        <a href="#">Download CV</a>
+      </div>
+    </div>
+
+    <div class="home-sci">
+      <a href="https://www.instagram.com/swopnab_k/"><i class='bx bxl-instagram' ></i></a>
+      <a href="https://github.com/Swopnab"><i class='bx bxl-github' ></i></a>
+      <a href="https://www.linkedin.com/in/swopnabbkarki/"><i class='bx bxl-linkedin' ></i></a>
+    </div>
+
+    <div class="dic-pic">
+      <a href="#"><img src="photo.jpg" alt=""></a>
+    </div>
+  </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-sci"></div>
+      <h4>About Me</h4>
+      <p>Jakakokalareta marshalli asistencia marshalli meska paramueta para messi messi messi messi messi messi messi messi i menci messi ankara messi ankara messi ANKARA MESSI ANKARA MESSI ANKARA MESSI ANKARA MESSI UENA MESSI ANKARA MESSI ANKARA MESSI ANKARA MESSI ANKARA MESSI
+        A N K A R A M E S S I
+        GOLGOL GOLGOL GOL !!! GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL G O L !!!!! GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL GOLGOL G O L ! ! !
+        INKA IPLA INKA IPLA !!! UOBOBUNGIMACCIMA BROBOUBUIAIMAŹIMA BROUEIŻMAIŻŚOOOOO BROUEIŹMAI INKA IPLA WENEZUAUA INKA IPLA UENEZUAUA MESSI MESSI MESSI PORA MESSI MESSI MESS PORA MESS PORA GOL MESS PORA GOL GOL GOL GOL GOL GOL MESS PORA GOL MESSI GOL MESSI GOL MESS DOR POL MEZ POL MEZ IANKARA MESSI MESSI MESS I MESS I MESS I MESS I MESS I MESS I MESS I MESS I MESS I MESS I MESS I TOTTI TOTTI TOTTI TOTTI TOTTI MESSI TOTTI MESSI TOT ITOTTI TOTTI TOTTI MESS TOTTI MESS ! ALETURA ZAMEZAMES INKA IPLA AASPAKAKULAE Inka Ipla ALKAEFATTA MESSI PARKA KOMPARERA MARADONA PARKA QUE GOL SASEMLALANLUSIA SI , SI , SI !!! UIJANTASI ASPATAGULAR</p>
+        <div class="btn-box">
+          <a href="#">My Education</a>
+          <a href="#">My Skills</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2>My Services</h2>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+    </section>
+      
+
+    <script>
+      document.querySelectorAll('.navbar a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>    
+
+  </body>
+</html>
