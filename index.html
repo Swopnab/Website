@@ -26,21 +26,20 @@
 
 
   <!--Home Section-->
-  <section class="home">
+  <section class="home" id="home">
     <div class="home-content">
       <h1>Hi, I'm Swopnab</h1>
       <h3>Full-Stack Developer</h3>
-      <p>Gang Gang Bitches</p>
+      <p>Hi, I'm a Full Stack Developer passionate about building seamless, 
+        scalable web applications. I specialize in front-end frameworks like React and Vue, 
+        and back-end technologies like Node.js, Django, and databases like PostgreSQL and MongoDB. 
+        I thrive in both UI/UX design and API development, ensuring smooth user experiences. 
+        Always eager to learn and innovate, I love turning ideas into reality through clean and efficient code. 🚀
+      </p>
       <div class="btn-box">
         <a href="#">Hire Me</a>
         <a href="#">Download CV</a>
       </div>
-    </div>
-
-    <div class="home-sci">
-      <a href="https://www.instagram.com/swopnab_k/"><i class='bx bxl-instagram' ></i></a>
-      <a href="https://github.com/Swopnab"><i class='bx bxl-github' ></i></a>
-      <a href="https://www.linkedin.com/in/swopnabbkarki/"><i class='bx bxl-linkedin' ></i></a>
     </div>
 
     <div class="dic-pic">
@@ -49,19 +48,19 @@
   </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section class="about" id="about">
       <h2>About Me</h2>
       <div class="my-education-container">
-        <h3>Education</h3>
+        <h4>Education</h4>
         <ul>
           <li>High School</li>
           <li>Bachelor Degree In Computer Science</li>
-        </div>
-      </ul>  
+        </ul> 
+        </div> 
       </div>
 
       <div class="my-skills-container">
-        <h3>Skills</h3>
+        <h4>Skills</h4>
         <ul>
           <li>HTML</li>
           <li>CSS</li>
@@ -70,34 +69,140 @@
           <li>Node.js</li>
           <li>Java</li>
           <li>C++</li>
+          <li>MySQL</li>
+          <li>MongoDB</li>
+          <li>Git</li>
+          <li>Ruby</li>
+          </ul>
       </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
       <h2>My Services</h2>
+      <div class="services-container">
+        <h4>Service That I provide</h4>
+        <ul>
+          <li>End-To-End Services</li>
+          <li>Website and Application Development</li>
+          <li>Frontend Development</li>
+          <li>Backend Development</li>
+          <li>Database Management</li>
+          <li>E-commerce Development</li>
+          <li>Full Stack Migration and Porting</li>
+          <li>Agile Development</li>
+          <li>Application Deployment</li>
+          <li>Maintaining Application</li>
+          <li>Security For Application</li>
+          <li>Scalability and Performance</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio">
-      <h2>Portfolio</h2>
+      <h2>My Portfolio</h2>
+      <p>Check out some of my latest projects.</p>
+      
+      <div class="portfolio-container">
+        <!-- Manually Added Portfolio Items -->
+        <div class="portfolio-item">
+          <img src="project1.jpg" alt="Project 1">
+          <div class="portfolio-info">
+            <h3>Custom Project 1</h3>
+            <p>Short description of the project.</p>
+            <a href="#" target="_blank">View Project</a>
+          </div>
+        </div>
+    
+        <div class="portfolio-item">
+          <img src="project2.jpg" alt="Project 2">
+          <div class="portfolio-info">
+            <h3>Custom Project 2</h3>
+            <p>Short description of the project.</p>
+            <a href="#" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    
+      <!-- GitHub Projects Will Be Loaded Here -->
+      <div id="github-projects" class="portfolio-container"></div>
     </section>
+    
 
     <!-- Contact Section -->
     <section id="contact">
       <h2>Contact Me</h2>
+      
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      
+
+      <!-- Social Media Links -->
+      <div class="contact-sci">
+        <a href="https://www.instagram.com/swopnab_k/"><i class='bx bxl-instagram'></i></a>
+        <a href="https://github.com/Swopnab"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/swopnabbkarki/"><i class='bx bxl-linkedin'></i></a>
+      </div>
     </section>
+
       
 
     <script>
       document.querySelectorAll('.navbar a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+
+          const targetSection = document.querySelector(this.getAttribute('href'));
+          if (targetSection) {
+            const headerOffset = 80; // Adjust based on your header height
+            const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
         });
       });
+
+    async function fetchGitHubRepos() {
+    const username = "swopnab"; // Replace with your GitHub username
+    const repoContainer = document.getElementById("github-projects");
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}/repos`);
+      const repos = await response.json();
+
+      // Filter repositories (optional: only show those with a description)
+      const filteredRepos = repos.filter(repo => repo.description);
+
+      // Loop through repositories and create elements
+      filteredRepos.forEach(repo => {
+        const project = document.createElement("div");
+        project.classList.add("project-card"); // Add a CSS class for styling
+
+        project.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description}</p>
+          <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+        `;
+
+        repoContainer.appendChild(project);
+      });
+    } catch (error) {
+      console.error("Error fetching GitHub repos:", error);
+      repoContainer.innerHTML = `<p>Failed to load projects. Try again later.</p>`;
+    }
+  }
+
+  fetchGitHubRepos();
+
     </script>    
 
   </body>
