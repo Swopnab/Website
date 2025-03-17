@@ -101,32 +101,8 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio">
-      <h2>My Portfolio</h2>
-      <p>Check out some of my latest projects.</p>
-      
-      <div class="portfolio-container">
-        <!-- Manually Added Portfolio Items -->
-        <div class="portfolio-item">
-          <img src="project1.jpg" alt="Project 1">
-          <div class="portfolio-info">
-            <h3>Custom Project 1</h3>
-            <p>Short description of the project.</p>
-            <a href="#" target="_blank">View Project</a>
-          </div>
-        </div>
-    
-        <div class="portfolio-item">
-          <img src="project2.jpg" alt="Project 2">
-          <div class="portfolio-info">
-            <h3>Custom Project 2</h3>
-            <p>Short description of the project.</p>
-            <a href="#" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
-    
-      <!-- GitHub Projects Will Be Loaded Here -->
-      <div id="github-projects" class="portfolio-container"></div>
+      <h2>My Projects</h2>
+      <div id="project-container" class="grid-container"></div>
     </section>
     
 
@@ -203,7 +179,49 @@
 
   fetchGitHubRepos();
 
-    </script>    
 
+  // Project data
+  const projects = [
+      { title: "Rock-Papper-Scissor", image: "project1.png", link: "https://github.com/Swopnab/Rock-Paper-Scissor" },
+      { title: "Personal Website", image: "project2.png", link: "https://github.com/Swopnab/Website" },
+      { title: "Music Player", image: "project3.png", link: "https://github.com/Swopnab/Music-Player" }
+  ];
+
+  // Select project container
+  const projectContainer = document.getElementById("project-container");
+
+  // Generate project boxes dynamically
+  projects.forEach(project => {
+      const projectBox = document.createElement("a");
+      projectBox.href = project.link;
+      projectBox.classList.add("project-box");
+
+      projectBox.innerHTML = `
+          <img src="${project.image}" alt="${project.title}" class="project-img">
+          <div class="project-title">${project.title}</div>
+      `;
+
+      projectContainer.appendChild(projectBox);
+  });
+
+  let lastScrollTop = 0;
+  const navbar = document.querySelector(".navbar");
+
+  window.addEventListener("scroll", function () {
+      let currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollTop && currentScroll > 50) {
+          // If scrolling down and past 50px, hide navbar
+          navbar.style.top = "-80px";  // Adjust this based on your navbar height
+      } else {
+          // If scrolling up, show navbar
+          navbar.style.top = "0";
+      }
+
+      lastScrollTop = currentScroll;
+  });
+
+
+    </script>    
   </body>
 </html>
