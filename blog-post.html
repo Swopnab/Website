@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog post by Swopnab Bikram Karki." />
+  <!-- Update title per post -->
+  <title>Post Title — Swopnab Bikram Karki</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Swopnab<span>.</span></a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="index.html#projects" role="menuitem">Projects</a>
+    <a href="blog.html" role="menuitem" class="active">Blog</a>
+    <a href="index.html#contact" role="menuitem">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <article class="blog-post" role="article">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="blog.html">Blog</a>
+        <span aria-hidden="true">/</span>
+        <!-- Update with post title -->
+        <span aria-current="page">Post Title</span>
+      </nav>
+
+      <!-- Meta -->
+      <div class="blog-post__meta">
+        <!-- Update tag, date, and read time per post -->
+        <span class="blog-card__tag">Category</span>
+        <time datetime="2026-03-20">March 20, 2026</time>
+        <span>·</span>
+        <span>5 min read</span>
+      </div>
+
+      <!-- Title — update per post -->
+      <h1 class="blog-post__title">
+        Post Title Goes Here
+      </h1>
+
+      <hr class="blog-post__divider" />
+
+      <!-- Body — write post content here using standard HTML -->
+      <div class="blog-post__body">
+
+        <p>
+          This is the blog post template. Replace this content with your actual post.
+          Each post gets its own copy of this file, or you can generate them dynamically later.
+        </p>
+
+        <h2>Section Heading</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Use this area for any rich content — paragraphs,
+          code blocks, lists, and more.
+        </p>
+
+        <h3>Sub-section</h3>
+
+        <p>You can include inline <code>code snippets</code> like this, or full code blocks below:</p>
+
+        <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));</code></pre>
+
+        <p>And bullet lists:</p>
+        <ul>
+          <li>Key insight number one</li>
+          <li>Key insight number two</li>
+          <li>Key insight number three</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+
+        <p>
+          Wrap up the post here. Link to resources, projects, or your GitHub profile as needed.
+        </p>
+
+        <p>
+          — <a href="index.html">Swopnab Bikram Karki</a>
+        </p>
+
+      </div><!-- /blog-post__body -->
+
+      <hr class="blog-post__divider" />
+
+      <!-- Back link -->
+      <p>
+        <a href="blog.html" style="display:inline-flex; align-items:center; gap:6px; font-size:0.875rem; font-weight:600; color:var(--color-text-secondary);">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Blog
+        </a>
+      </p>
+
+    </article>
+  </div><!-- /page-wrapper -->
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <span class="footer__name">Swopnab Bikram Karki</span>
+      <p class="footer__copy">
+        &copy; <span id="footer-year"></span> — Built with HTML, CSS &amp; JavaScript.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

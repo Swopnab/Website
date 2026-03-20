@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog by Swopnab Bikram Karki — Posts on software engineering, internship journeys, and lessons learned." />
+  <title>Blog — Swopnab Bikram Karki</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Swopnab<span>.</span></a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="index.html#projects" role="menuitem">Projects</a>
+    <a href="blog.html" role="menuitem" class="active">Blog</a>
+    <a href="index.html#contact" role="menuitem">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="blog-page">
+
+      <!-- Header -->
+      <header class="blog-page__header animate-fade-up">
+        <h1 class="blog-page__title">Blog</h1>
+        <p class="blog-page__subtitle">Thoughts on software engineering, career journeys, and things I learn along the way.</p>
+      </header>
+
+      <!-- Post List -->
+      <!-- To add posts: copy a blog-card article block below and fill in details. -->
+      <!-- For now, showing a "Coming Soon" empty state. -->
+
+      <div id="blog-post-list" aria-live="polite">
+
+        <!-- ── COMING SOON (remove when posts are added) ── -->
+        <div class="empty-state animate-fade-up animate-delay-1" role="status">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+          </svg>
+          <h3>Posts Coming Soon</h3>
+          <p>I'm drafting my first posts. Check back soon for content on coding, computer science, and my journey as a software engineering student.</p>
+        </div>
+
+        <!-- ── EXAMPLE BLOG CARD (template — uncomment &amp; fill when ready) ──
+        <article class="blog-card" aria-labelledby="post-1-title">
+          <div class="blog-card__meta">
+            <span class="blog-card__tag">Career</span>
+            <span>March 20, 2026</span>
+            <span>·</span>
+            <span>5 min read</span>
+          </div>
+          <h2 class="blog-card__title" id="post-1-title">
+            <a href="blog-post.html">How I Built My First Full-Stack App</a>
+          </h2>
+          <p class="blog-card__excerpt">
+            A walkthrough of my experience building the Personal Job Tracker — the technical decisions, mistakes, and what I learned along the way.
+          </p>
+          <a href="blog-post.html" class="blog-card__readmore" aria-label="Read How I Built My First Full-Stack App">
+            Read more &rarr;
+          </a>
+        </article>
+        ── END EXAMPLE ── -->
+
+      </div><!-- /blog-post-list -->
+
+    </div><!-- /blog-page -->
+  </div><!-- /page-wrapper -->
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <span class="footer__name">Swopnab Bikram Karki</span>
+      <p class="footer__copy">
+        &copy; <span id="footer-year"></span> — Built with HTML, CSS &amp; JavaScript.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
