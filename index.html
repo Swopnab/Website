@@ -16,16 +16,29 @@
        ============================================================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="#home" class="nav__logo">Swopnab<span>.</span></a>
-      <div class="nav__links">
-        <a href="#home"     class="active" id="nav-home">Home</a>
-        <a href="#projects"              id="nav-projects">Projects</a>
-        <a href="#blog"                  id="nav-blog">Blog</a>
-        <a href="#contact"               id="nav-contact">Contact</a>
+      <a href="#home" class="nav__logo">Swopnab</a>
+      <div class="nav__right">
+        <div class="nav__links">
+          <a href="#home"     class="active" id="nav-home">Home</a>
+          <a href="#projects"              id="nav-projects">Projects</a>
+          <a href="#skills"                id="nav-skills">Skills</a>
+          <a href="#blog"                  id="nav-blog">Blog</a>
+          <a href="#contact"               id="nav-contact">Contact</a>
+        </div>
+        <button class="nav__theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <!-- Moon icon (shown in light mode) -->
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <!-- Sun icon (shown in dark mode) -->
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
@@ -33,6 +46,7 @@
   <div class="nav__mobile" id="mobile-menu" role="menu">
     <a href="#home"     role="menuitem">Home</a>
     <a href="#projects" role="menuitem">Projects</a>
+    <a href="#skills"   role="menuitem">Skills</a>
     <a href="#blog"     role="menuitem">Blog</a>
     <a href="#contact"  role="menuitem">Contact</a>
   </div>
@@ -117,34 +131,11 @@
         <div class="animate-fade-up animate-delay-2">
           <p class="sidebar__section-label">About</p>
           <p class="about-me__text">
-            I'm a Computer Science student at the University of Texas at Dallas with a passion for building
-            full-stack web applications. I enjoy crafting clean, user-focused products — from designing
-            intuitive UIs to architecting scalable backends. I'm actively seeking software engineering
-            internship opportunities where I can grow and contribute.
+            CS student building AI + full-stack projects (RAG/chatbots) with Python, React, and AWS (S3/IAM).
+            Integrated LLM APIs and shipped projects with authentication and cloud storage.
           </p>
         </div>
 
-        <!-- Skills -->
-        <div class="animate-fade-up animate-delay-3">
-          <p class="sidebar__section-label">Skills</p>
-          <div class="skills-list" aria-label="Technical skills">
-            <span class="skill-chip">JavaScript</span>
-            <span class="skill-chip">TypeScript</span>
-            <span class="skill-chip">React</span>
-            <span class="skill-chip">Node.js</span>
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">Java</span>
-            <span class="skill-chip">C++</span>
-            <span class="skill-chip">HTML/CSS</span>
-            <span class="skill-chip">MongoDB</span>
-            <span class="skill-chip">MySQL</span>
-            <span class="skill-chip">Express.js</span>
-            <span class="skill-chip">REST APIs</span>
-            <span class="skill-chip">JWT / Auth</span>
-            <span class="skill-chip">Git</span>
-            <span class="skill-chip">Vercel</span>
-          </div>
-        </div>
 
       </aside>
 
@@ -386,6 +377,92 @@
 
         <hr class="divider" />
 
+        <!-- ── SKILLS & EDUCATION ── -->
+        <section class="section" id="skills" aria-labelledby="skills-heading">
+          <div class="section__header">
+            <h2 class="section__title" id="skills-heading">Skills &amp; Education</h2>
+          </div>
+
+          <!-- Education -->
+          <div class="education-block" style="margin-bottom: var(--space-lg);" aria-label="Education">
+            <span class="education-block__school">University of Texas at Arlington &nbsp;·&nbsp; Arlington, TX</span>
+            <span class="education-block__degree">B.S. in Computer Science</span>
+            <span class="education-block__meta">2025 – Present &nbsp;·&nbsp; Expected Graduation: Fall 2027</span>
+          </div>
+
+          <!-- Skills card -->
+          <div class="skills-section-card" aria-label="Technical skills">
+
+            <div class="skills-category">
+              <span class="skills-category__label">Languages</span>
+              <div class="skills-category__chips">
+                <span class="skill-chip">Python</span>
+                <span class="skill-chip">Java</span>
+                <span class="skill-chip">C</span>
+                <span class="skill-chip">C++</span>
+                <span class="skill-chip">JavaScript</span>
+                <span class="skill-chip">TypeScript</span>
+                <span class="skill-chip">SQL</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <span class="skills-category__label">Web &amp; Backend</span>
+              <div class="skills-category__chips">
+                <span class="skill-chip">React</span>
+                <span class="skill-chip">Node.js</span>
+                <span class="skill-chip">Django</span>
+                <span class="skill-chip">Django REST Framework</span>
+                <span class="skill-chip">Express.js</span>
+                <span class="skill-chip">REST APIs</span>
+                <span class="skill-chip">JWT Authentication</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <span class="skills-category__label">AI / Machine Learning</span>
+              <div class="skills-category__chips">
+                <span class="skill-chip">PyTorch</span>
+                <span class="skill-chip">TensorFlow</span>
+                <span class="skill-chip">Scikit-learn</span>
+                <span class="skill-chip">OpenAI API</span>
+                <span class="skill-chip">LangChain</span>
+                <span class="skill-chip">RAG</span>
+                <span class="skill-chip">Vector Databases</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <span class="skills-category__label">Cloud &amp; DevOps</span>
+              <div class="skills-category__chips">
+                <span class="skill-chip">AWS S3</span>
+                <span class="skill-chip">AWS IAM</span>
+                <span class="skill-chip">Docker</span>
+                <span class="skill-chip">Kubernetes</span>
+                <span class="skill-chip">GitHub Actions</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <span class="skills-category__label">Tools</span>
+              <div class="skills-category__chips">
+                <span class="skill-chip">Git</span>
+                <span class="skill-chip">GitHub</span>
+                <span class="skill-chip">VS Code</span>
+                <span class="skill-chip">Postman</span>
+                <span class="skill-chip">Linux</span>
+                <span class="skill-chip">Figma</span>
+                <span class="skill-chip">Excel</span>
+                <span class="skill-chip">Power BI</span>
+                <span class="skill-chip">Tableau</span>
+              </div>
+            </div>
+
+          </div><!-- /skills-section-card -->
+        </section>
+
+        <hr class="divider" />
+
         <!-- ── BLOG ── -->
         <section class="section" id="blog" aria-labelledby="blog-heading">
           <div class="section__header">
@@ -488,7 +565,7 @@
     <div class="footer__inner">
       <span class="footer__name">Swopnab Bikram Karki</span>
       <p class="footer__copy">
-        &copy; <span id="footer-year"></span> — Built with HTML, CSS &amp; JavaScript. Deployed on Vercel.
+        &copy; <span id="footer-year"></span>
       </p>
     </div>
   </footer>

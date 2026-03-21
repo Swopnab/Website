@@ -4,6 +4,36 @@
 
 'use strict';
 
+// ── Dark Mode Toggle ──────────────────────────────────────────
+const html = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+const iconMoon = document.getElementById('icon-moon');
+const iconSun  = document.getElementById('icon-sun');
+
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('portfolio-theme', theme);
+  if (iconMoon && iconSun) {
+    iconMoon.style.display = theme === 'dark' ? 'none' : '';
+    iconSun.style.display  = theme === 'dark' ? '' : 'none';
+  }
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+}
+
+// Load saved preference, fallback to system preference
+const savedTheme = localStorage.getItem('portfolio-theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+}
+
 // ── Footer year ──────────────────────────────────────────────
 const footerYear = document.getElementById('footer-year');
 if (footerYear) {
