@@ -2,7 +2,7 @@
 
 A responsive portfolio built with HTML, CSS, and JavaScript.
 
-[View the website](https://swopnab.github.io/Website/)
+[View the website](https://swopnab-web.vercel.app/)
 
 ## Features
 
