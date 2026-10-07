@@ -1,575 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Swopnab Bikram Karki — Computer Science Student & Aspiring Software Engineer based in Dallas, Texas. Portfolio of projects, skills, and blog." />
-  <title>Swopnab Bikram Karki — Portfolio</title>
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-</head>
-<body>
-
-  <!-- ============================================================
-       NAVIGATION
-       ============================================================ -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="#home" class="nav__logo">Swopnab</a>
-      <div class="nav__right">
-        <div class="nav__links">
-          <a href="#home"     class="active" id="nav-home">Home</a>
-          <a href="#projects"              id="nav-projects">Projects</a>
-          <a href="#skills"                id="nav-skills">Skills</a>
-          <a href="#blog"                  id="nav-blog">Blog</a>
-          <a href="#contact"               id="nav-contact">Contact</a>
-        </div>
-        <button class="nav__theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-          <!-- Moon icon (shown in light mode) -->
-          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-          <!-- Sun icon (shown in dark mode) -->
-          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
-        </button>
-        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080808">
+<meta name="description" content="Swopnab Bikram Karki — Computer Science student at UT Arlington building secure full-stack applications, AI assistants, and interactive browser experiences.">
+<title>Swopnab Bikram Karki — Software & AI Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/malevolent-shrine.svg" as="image"><link rel="stylesheet" href="styles/cinematic.css"><script src="js/portfolio.js" defer></script>
+</head><body><svg class="color-filters" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><filter id="red-duotone" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="0 .55 .95 1 1"/><feFuncG type="table" tableValues="0 .015 .08 .5 1"/><feFuncB type="table" tableValues="0 .015 .08 .5 1"/></feComponentTransfer></filter></defs></svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page-wrap"><header class="topbar"><a class="brand" href="#home"><img src="assets/swopnab-sunset.jpg" alt="" width="40" height="40"><span>SWOPNAB<span class="brand-detail">BIKRAM KARKI</span></span></a><nav aria-label="Top navigation"><a href="#projects">Selected work</a><a href="#about">About me</a><a href="#links">Find me online ↗</a></nav><button class="mode-switch" type="button" role="switch" aria-checked="false" aria-label="Jujutsu mode" aria-controls="jujutsu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 8 5v10l-8 5-8-5V7Z"/><path d="m12 6 5 9H7Z"/></svg><span>JUJUTSU MODE</span><span class="switch-track" aria-hidden="true"><i></i></span></button><a class="top-status" href="#contact"><i></i> LET’S CONNECT</a></header>
+<main id="main">
+<section class="cinema-hero" id="home" aria-labelledby="hero-title"><div class="hero-image"><img src="assets/swopnab-sunset.jpg" alt="Swopnab Karki looking toward the horizon at sunset" width="960" height="1280" fetchpriority="high"></div><div class="hero-grid" aria-hidden="true"></div><span class="hero-coordinate">PORTFOLIO / VOL. 01</span><div class="hero-copy"><p class="eyebrow"><span class="red-line"></span> COMPUTER SCIENCE STUDENT & DEVELOPER</p><h1 id="hero-title">SWOPNAB<span>BIKRAM KARKI<span class="red-dot">.</span></span></h1><p class="hero-manifesto">Curiosity is the starting point.<br><strong>Building is the next step.</strong></p><p class="hero-description">Secure software, intelligent tools, and interactive experiences. Built with purpose. Made to be used.</p><div class="hero-actions"><a class="button primary" href="#projects">EXPLORE MY WORK <span>↗</span></a><a class="button" href="assets/swopnab-karki-resume.pdf" download="Swopnab-Karki-Resume.pdf">DOWNLOAD RÉSUMÉ <span>↓</span></a></div></div><div class="portrait-note"><span class="crosshair" aria-hidden="true">+</span><span>THE PERSON<br>BEHIND THE CODE</span></div><div class="hero-bottom"><span>UT ARLINGTON / CLASS OF ’27</span><a href="#about">SCROLL TO EXPLORE <span>↓</span></a><span>SOFTWARE + AI + CURIOSITY</span></div></section>
+<section class="profile-section" id="about" aria-labelledby="about-title"><figure class="profile-visual"><img src="assets/swopnab-city.jpg" alt="Swopnab wearing sunglasses with a city skyline at night" width="1280" height="960" loading="lazy"><figcaption><span>01 / MEET THE BUILDER</span><strong>Always looking<br>at what’s next.</strong></figcaption><span class="vertical-label" aria-hidden="true">A LITTLE MORE HUMAN</span></figure><div class="profile-content"><p class="eyebrow">BEHIND THE SCREEN</p><h2 id="about-title">A curious mind.<br>A builder’s instinct<span>.</span></h2><p>I’m Swopnab, a Computer Science student at the University of Texas at Arlington. I turn ideas into full-stack applications, AI assistants, and experiences you can play.</p><dl class="profile-data"><div><dt>EDUCATION</dt><dd>B.S. Computer Science<br>University of Texas at Arlington</dd></div><div><dt>NEXT CHAPTER</dt><dd>Expected graduation: Fall 2027</dd></div><div><dt>FOCUS</dt><dd>Full-stack development · AI · Security</dd></div></dl><a class="inline-link" href="assets/swopnab-karki-resume.pdf" target="_blank" rel="noopener">READ MY RÉSUMÉ <span>↗</span></a></div></section>
+<section id="projects" aria-labelledby="projects-title">
+<div class="section-bar projects-section-heading"><div><span class="eyebrow">SELECTED WORK</span><h2 id="projects-title">Featured Projects<span class="spark" aria-hidden="true">.</span></h2></div><a href="https://github.com/Swopnab?tab=repositories" target="_blank" rel="noopener">VIEW ALL ON GITHUB <span aria-hidden="true">⟶</span></a></div>
+<div class="projects-grid">
+<article class="project-card"><a class="project-preview" href="https://swopnab.github.io/Hand-controlled-racing-simulation/" target="_blank" rel="noopener" aria-label="Play CyberSteer live demo"><img src="assets/cybersteer.jpg" alt="CyberSteer arcade racing game with hand and keyboard controls" width="1280" height="720" loading="lazy"><span class="preview-action">PLAY THE GAME <span aria-hidden="true">↗</span></span></a><div class="project-heading"><span class="project-number">01</span><div><h3>CYBERSTEER</h3><p>Computer vision / Browser game</p></div></div><p class="project-description">Steer through highway traffic with your hand or keyboard. Real-time MediaPipe tracking meets a fast-paced Canvas racing game.</p><ul class="tags" aria-label="CyberSteer technologies"><li>JAVASCRIPT</li><li>MEDIAPIPE</li><li>CANVAS</li></ul><div class="project-links"><a href="https://swopnab.github.io/Hand-controlled-racing-simulation/" target="_blank" rel="noopener">Play demo ↗</a><a href="https://github.com/Swopnab/Hand-controlled-racing-simulation" target="_blank" rel="noopener">Source ↗</a></div></article>
+<article class="project-card"><a class="project-preview" href="https://swopnab.github.io/JWT-auth-service-plus-RBAC/" target="_blank" rel="noopener" aria-label="Open SwopMobile hosted sign-in page"><img src="assets/swopmobile.jpg" alt="SwopMobile account sign-in interface" width="1280" height="720" loading="lazy"><span class="preview-action">EXPLORE THE PLATFORM <span aria-hidden="true">↗</span></span></a><div class="project-heading"><span class="project-number">02</span><div><h3>SWOPMOBILE</h3><p>Authentication / Full-stack platform</p></div></div><p class="project-description">A serverless workspace built around secure sign-in, three permission roles, rotating refresh tokens, and isolated user data.</p><ul class="tags" aria-label="SwopMobile technologies"><li>CLOUDFLARE</li><li>HONO / D1</li><li>JWT / RBAC</li></ul><div class="project-links"><a href="https://swopnab.github.io/JWT-auth-service-plus-RBAC/" target="_blank" rel="noopener">Open site ↗</a><a href="https://github.com/Swopnab/JWT-auth-service-plus-RBAC" target="_blank" rel="noopener">Source ↗</a></div></article>
+<article class="project-card"><a class="project-preview" href="https://swopnab.github.io/Personal-Job-Tracker-app/" target="_blank" rel="noopener" aria-label="Try Personal Job Tracker live demo"><img src="assets/job-tracker.jpg" alt="Job Tracker dashboard with application stats and table and board views" width="1280" height="720" loading="lazy"><span class="preview-action">TRY THE TRACKER <span aria-hidden="true">↗</span></span></a><div class="project-heading"><span class="project-number">03</span><div><h3>PERSONAL JOB TRACKER</h3><p>Productivity / Web application</p></div></div><p class="project-description">Keep applications, interviews, and follow-ups in one place. A responsive tracker with table and board views and browser-based storage.</p><ul class="tags" aria-label="Job Tracker technologies"><li>JAVASCRIPT</li><li>LOCALSTORAGE</li><li>GITHUB PAGES</li></ul><div class="project-links"><a href="https://swopnab.github.io/Personal-Job-Tracker-app/" target="_blank" rel="noopener">Try demo ↗</a><a href="https://github.com/Swopnab/Personal-Job-Tracker-app" target="_blank" rel="noopener">Source ↗</a></div></article>
+</div>
+<article class="ai-feature"><div class="ai-art" aria-hidden="true"><div class="orbit"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span>z<span class="spark">✦</span></span><p>MEMORY. CONTEXT. CONVERSATION.</p></div><div class="ai-copy"><span class="eyebrow">A CLOSER LOOK / LOCAL AI</span><h3>Zabum AI</h3><p>A personal AI assistant with persistent memory, screenshot OCR, and document retrieval. Built with Flask, SQLite, and local Ollama inference.</p><div class="project-links"><a href="https://github.com/Swopnab/Zabum-AI" target="_blank" rel="noopener">Explore project ↗</a><span class="project-note">RUNS LOCALLY · SETUP IN REPOSITORY</span></div></div></article>
+</section>
+<section class="skills-adventure" id="skills" aria-labelledby="skills-title">
+  <header class="adventure-heading"><div><span class="eyebrow">THE DEVELOPMENT MAP</span><h2 id="skills-title">Built one step at a time<span>.</span></h2></div><p>Skills on the left. Tools on the right.<br>A toolkit shaped by building real things.</p></header>
+  <div class="skill-map">
+    <div class="map-scenery" aria-hidden="true"><img src="assets/skills-adventure-red.png" alt="" width="1536" height="1024" loading="lazy"></div>
+    <div class="map-column-headings"><h3>SKILLS <span>WHAT I BUILD WITH</span></h3><h3>TOOLS <span>HOW I BRING IT TO LIFE</span></h3></div>
+    <div class="map-rows">
+      <div class="map-row">
+        <article class="map-card skill-card"><span class="level-label">STEP 01 / THE FOUNDATION</span><h4>Languages & logic</h4><p>Python, Java, C, C++, JavaScript, TypeScript, SQL</p><span class="card-footnote">FROM AN IDEA TO WORKING CODE</span></article>
+        <div class="stone-cluster" aria-hidden="true"><span class="step-number">01</span><i></i><i></i><i></i></div>
+        <article class="map-card tool-card"><span class="level-label">01 / THE WORKBENCH</span><h4>Everyday essentials</h4><p>VS Code, Git, GitHub, Linux, Postman, Figma</p><span class="card-footnote">WRITE · VERSION · DEBUG</span></article>
+      </div>
+      <div class="map-row">
+        <article class="map-card skill-card"><span class="level-label">STEP 02 / BUILD THE EXPERIENCE</span><h4>Full-stack development</h4><p>React, Node.js, Express, Django REST Framework, Flask, Hono, REST APIs</p><a href="https://swopnab.github.io/Personal-Job-Tracker-app/" target="_blank" rel="noopener">SEE IT IN JOB TRACKER ↗</a></article>
+        <div class="stone-cluster" aria-hidden="true"><span class="step-number">02</span><i></i><i></i><i></i></div>
+        <article class="map-card tool-card"><span class="level-label">02 / BUILD & SHIP</span><h4>Development & delivery</h4><p>Vite, Docker, Kubernetes, GitHub Actions, Wrangler</p><span class="card-footnote">BUILD · TEST · DEPLOY</span></article>
+      </div>
+      <div class="map-row">
+        <article class="map-card skill-card"><span class="level-label">STEP 03 / ADD INTELLIGENCE</span><h4>AI & computer vision</h4><p>LLMs, retrieval-augmented generation, persistent memory, hand tracking</p><a href="https://github.com/Swopnab/Zabum-AI" target="_blank" rel="noopener">EXPLORE ZABUM AI ↗</a></article>
+        <div class="stone-cluster" aria-hidden="true"><span class="step-number">03</span><i></i><i></i><i></i></div>
+        <article class="map-card tool-card"><span class="level-label">03 / THE AI TOOLKIT</span><h4>Models & frameworks</h4><p>Ollama, OpenAI API, LangChain, MediaPipe, PyTorch, TensorFlow, Scikit-learn</p><span class="card-footnote">CONTEXT · INFERENCE · VISION</span></article>
+      </div>
+      <div class="map-row">
+        <article class="map-card skill-card"><span class="level-label">STEP 04 / MAKE IT RESILIENT</span><h4>Cloud & security</h4><p>JWT authentication, RBAC, refresh-token rotation, cloud storage, data isolation</p><a href="https://github.com/Swopnab/JWT-auth-service-plus-RBAC" target="_blank" rel="noopener">EXPLORE SWOPMOBILE ↗</a></article>
+        <div class="stone-cluster" aria-hidden="true"><span class="step-number">04</span><i></i><i></i><i></i></div>
+        <article class="map-card tool-card"><span class="level-label">04 / THE INFRASTRUCTURE</span><h4>Cloud & databases</h4><p>AWS S3 / IAM, Cloudflare Workers / D1, SQLite, GitHub Pages</p><span class="card-footnote">STORE · SECURE · SCALE</span></article>
       </div>
     </div>
-  </nav>
-
-  <!-- Mobile menu -->
-  <div class="nav__mobile" id="mobile-menu" role="menu">
-    <a href="#home"     role="menuitem">Home</a>
-    <a href="#projects" role="menuitem">Projects</a>
-    <a href="#skills"   role="menuitem">Skills</a>
-    <a href="#blog"     role="menuitem">Blog</a>
-    <a href="#contact"  role="menuitem">Contact</a>
+    <div class="map-finish"><span class="finish-marker" aria-hidden="true">✦</span><span>THE NEXT STEP? <strong>KEEP BUILDING.</strong></span><a href="assets/swopnab-karki-resume.pdf" target="_blank" rel="noopener">VIEW FULL RÉSUMÉ ↗</a></div>
   </div>
+</section>
+<section class="credentials-section" aria-labelledby="credentials-title"><div class="section-bar"><h2 id="credentials-title">ALWAYS LEARNING <span class="spark" aria-hidden="true">✦</span></h2><span class="eyebrow">CERTIFICATIONS & FOUNDATIONS</span></div><div class="credentials-grid"><article><span class="credential-icon" aria-hidden="true">✧</span><h3>Microsoft Azure Essentials</h3><p>Professional Certificate<br>Microsoft & LinkedIn</p></article><article><span class="credential-icon" aria-hidden="true">✧</span><h3>Career Essentials in <br>Software Development</h3><p>Microsoft & LinkedIn</p></article><article><span class="credential-icon" aria-hidden="true">✧</span><h3>Career Essentials in GitHub</h3><p>Professional Certificate<br><span class="credential-extra">Also: Excel Essential Training (Microsoft 365)</span></p></article></div></section>
 
-  <div class="page-wrapper">
-    <div class="layout">
-
-      <!-- ============================================================
-           SIDEBAR
-           ============================================================ -->
-      <aside class="sidebar" id="home" aria-label="Profile sidebar">
-
-        <!-- Profile -->
-        <div class="profile animate-fade-up">
-          <div class="hero-badge">Open to Opportunities</div>
-          <div class="profile__photo-wrap">
-            <img
-              src="photo.jpg"
-              alt="Swopnab Bikram Karki profile photo"
-              class="profile__photo"
-              width="120" height="120"
-            />
-            <div class="profile__badge" aria-hidden="true"></div>
-          </div>
-          <h1 class="profile__name">Swopnab Bikram Karki</h1>
-          <p class="profile__title">Computer Science Student<br />Aspiring Software Engineer</p>
-        </div>
-
-        <!-- Contact info -->
-        <div class="animate-fade-up animate-delay-1">
-          <p class="sidebar__section-label">Contact</p>
-          <ul class="contact-list" aria-label="Contact information">
-            <li class="contact-list__item">
-              <!-- Location icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span>Dallas, Texas</span>
-            </li>
-            <li class="contact-list__item">
-              <!-- Email icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              <a href="mailto:swopnabbikram@gmail.com">swopnabbikram@gmail.com</a>
-            </li>
-            <li class="contact-list__item">
-              <!-- GitHub icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              <a href="https://github.com/Swopnab" target="_blank" rel="noopener noreferrer">github.com/Swopnab</a>
-            </li>
-            <li class="contact-list__item">
-              <!-- LinkedIn icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              <a href="https://www.linkedin.com/in/swopnabbkarki/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div class="sidebar__ctas animate-fade-up animate-delay-2">
-          <a href="#" class="btn btn--primary btn--full" id="btn-resume" aria-label="View Resume">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            View Resume
-          </a>
-          <a href="#contact" class="btn btn--secondary btn--full" aria-label="Contact Me">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-            </svg>
-            Contact Me
-          </a>
-        </div>
-
-        <!-- About Me -->
-        <div class="animate-fade-up animate-delay-2">
-          <p class="sidebar__section-label">About</p>
-          <p class="about-me__text">
-            CS student building AI + full-stack projects (RAG/chatbots) with Python, React, and AWS (S3/IAM).
-            Integrated LLM APIs and shipped projects with authentication and cloud storage.
-          </p>
-        </div>
-
-
-      </aside>
-
-      <!-- ============================================================
-           MAIN CONTENT
-           ============================================================ -->
-      <main class="main-content" role="main">
-
-        <!-- ── PROJECTS ── -->
-        <section class="section" id="projects" aria-labelledby="projects-heading">
-          <div class="section__header">
-            <h2 class="section__title" id="projects-heading">Featured Projects</h2>
-            <a href="https://github.com/Swopnab" target="_blank" rel="noopener noreferrer" class="section__link" aria-label="View all projects on GitHub">
-              All projects
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </a>
-          </div>
-
-          <div class="projects-grid" id="projects-grid">
-
-            <!-- Card 1: Music Player -->
-            <article class="project-card" aria-labelledby="proj-music-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-music-title">Music Player</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">HTML5 Audio API</span>
-                <span class="tech-badge">CSS3</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Built an in-browser music player with playlist management using the HTML5 Audio API, enabling seamless track switching and play/pause controls.</li>
-                <li class="achievement-item">Implemented a responsive UI with dynamic track metadata display, resulting in a fluid playback experience across all screen sizes.</li>
-                <li class="achievement-item">Deployed to GitHub Pages, making the app publicly accessible with zero backend infrastructure.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/Music-Player" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View Music Player on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 2: Job Tracker -->
-            <article class="project-card" aria-labelledby="proj-jobs-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-jobs-title">Personal Job Tracker</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">React</span>
-                <span class="tech-badge">Node.js</span>
-                <span class="tech-badge">MongoDB</span>
-                <span class="tech-badge">Express.js</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Designed and built a full-stack job application tracker that lets users log, categorize, and update job opportunities, reducing manual spreadsheet tracking.</li>
-                <li class="achievement-item">Implemented CRUD operations with a MongoDB backend and RESTful Express API, enabling persistent data storage with sub-100ms response times.</li>
-                <li class="achievement-item">Built a React dashboard with status filters (Applied, Interview, Offer, Rejected), improving job search workflow clarity.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/Personal-Job-Tracker-app" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View Personal Job Tracker on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 3: Zabum-AI -->
-            <article class="project-card" aria-labelledby="proj-ai-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-ai-title">Zabum AI</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">OpenAI API</span>
-                <span class="tech-badge">Flask</span>
-                <span class="tech-badge">JavaScript</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Built an AI-powered conversational assistant by integrating the OpenAI API with a Python Flask backend, enabling natural language Q&amp;A interactions.</li>
-                <li class="achievement-item">Architected a RESTful API layer that streams AI responses to a vanilla JS frontend, achieving real-time chat-like UX without a heavy framework.</li>
-                <li class="achievement-item">Implemented conversation history context passing, resulting in more coherent multi-turn dialogue sessions.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/Zabum-AI" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View Zabum AI on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 4: JWT Auth + RBAC -->
-            <article class="project-card" aria-labelledby="proj-jwt-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-jwt-title">JWT Auth Service + RBAC</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">Node.js</span>
-                <span class="tech-badge">Express.js</span>
-                <span class="tech-badge">JWT</span>
-                <span class="tech-badge">MongoDB</span>
-                <span class="tech-badge">bcrypt</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Engineered a production-ready JWT authentication microservice with role-based access control (RBAC) supporting Admin, Editor, and Viewer roles.</li>
-                <li class="achievement-item">Implemented secure password hashing with bcrypt and token refresh workflows, reducing unauthorized access vulnerabilities.</li>
-                <li class="achievement-item">Designed route-level middleware guards that authorize API endpoints by user role, enabling a reusable auth layer for future projects.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/JWT-auth-service-plus-RBAC" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View JWT Auth Service on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 5: SwopnabK (GitHub Profile) -->
-            <article class="project-card" aria-labelledby="proj-profile-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-profile-title">GitHub Profile (SwopnabK)</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">Markdown</span>
-                <span class="tech-badge">GitHub Actions</span>
-                <span class="tech-badge">SVG Badges</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Crafted a dynamic GitHub profile README using Markdown, badges, and stats widgets to create a compelling first impression for recruiters.</li>
-                <li class="achievement-item">Integrated live GitHub Stats cards and streak trackers, giving visitors an at-a-glance view of coding activity and popular languages.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/SwopnabK" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View GitHub Profile README on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 6: my-react-blog -->
-            <article class="project-card" aria-labelledby="proj-blog-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-blog-title">My React Blog</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">React</span>
-                <span class="tech-badge">Vite</span>
-                <span class="tech-badge">React Router</span>
-                <span class="tech-badge">CSS Modules</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Built a single-page blog application with React and Vite, achieving near-instant hot module reloading and production bundle optimization.</li>
-                <li class="achievement-item">Implemented client-side routing with React Router for a multi-page feel, enabling post listing, detail views, and category filtering.</li>
-                <li class="achievement-item">Designed a component-driven architecture with reusable card and layout components, reducing code duplication across pages.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/my-react-blog" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View My React Blog on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 7: Rock Paper Scissors -->
-            <article class="project-card" aria-labelledby="proj-rps-title">
-              <div class="project-card__header">
-                <h3 class="project-card__title" id="proj-rps-title">Rock Paper Scissors</h3>
-                <div class="project-card__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tech-stack" aria-label="Tech stack">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
-              </div>
-              <ul class="achievements" aria-label="Project highlights">
-                <li class="achievement-item">Developed an interactive Rock Paper Scissors game with a computer AI opponent using Math.random(), delivering instant play-again functionality.</li>
-                <li class="achievement-item">Built a live scoreboard that tracks wins, losses, and draws across sessions using browser localStorage, achieving persistent state without a backend.</li>
-                <li class="achievement-item">Deployed as a static site, making it accessible from any browser with no installation required.</li>
-              </ul>
-              <div class="project-card__footer">
-                <a href="https://github.com/Swopnab/Rock-Paper-Scissor" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm" aria-label="View Rock Paper Scissors on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-
-          </div><!-- /projects-grid -->
-        </section>
-
-        <hr class="divider" />
-
-        <!-- ── SKILLS & EDUCATION ── -->
-        <section class="section" id="skills" aria-labelledby="skills-heading">
-          <div class="section__header">
-            <h2 class="section__title" id="skills-heading">Skills &amp; Education</h2>
-          </div>
-
-          <!-- Education -->
-          <div class="education-block" style="margin-bottom: var(--space-lg);" aria-label="Education">
-            <span class="education-block__school">University of Texas at Arlington &nbsp;·&nbsp; Arlington, TX</span>
-            <span class="education-block__degree">B.S. in Computer Science</span>
-            <span class="education-block__meta">2025 – Present &nbsp;·&nbsp; Expected Graduation: Fall 2027</span>
-          </div>
-
-          <!-- Skills card -->
-          <div class="skills-section-card" aria-label="Technical skills">
-
-            <div class="skills-category">
-              <span class="skills-category__label">Languages</span>
-              <div class="skills-category__chips">
-                <span class="skill-chip">Python</span>
-                <span class="skill-chip">Java</span>
-                <span class="skill-chip">C</span>
-                <span class="skill-chip">C++</span>
-                <span class="skill-chip">JavaScript</span>
-                <span class="skill-chip">TypeScript</span>
-                <span class="skill-chip">SQL</span>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <span class="skills-category__label">Web &amp; Backend</span>
-              <div class="skills-category__chips">
-                <span class="skill-chip">React</span>
-                <span class="skill-chip">Node.js</span>
-                <span class="skill-chip">Django</span>
-                <span class="skill-chip">Django REST Framework</span>
-                <span class="skill-chip">Express.js</span>
-                <span class="skill-chip">REST APIs</span>
-                <span class="skill-chip">JWT Authentication</span>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <span class="skills-category__label">AI / Machine Learning</span>
-              <div class="skills-category__chips">
-                <span class="skill-chip">PyTorch</span>
-                <span class="skill-chip">TensorFlow</span>
-                <span class="skill-chip">Scikit-learn</span>
-                <span class="skill-chip">OpenAI API</span>
-                <span class="skill-chip">LangChain</span>
-                <span class="skill-chip">RAG</span>
-                <span class="skill-chip">Vector Databases</span>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <span class="skills-category__label">Cloud &amp; DevOps</span>
-              <div class="skills-category__chips">
-                <span class="skill-chip">AWS S3</span>
-                <span class="skill-chip">AWS IAM</span>
-                <span class="skill-chip">Docker</span>
-                <span class="skill-chip">Kubernetes</span>
-                <span class="skill-chip">GitHub Actions</span>
-              </div>
-            </div>
-
-            <div class="skills-category">
-              <span class="skills-category__label">Tools</span>
-              <div class="skills-category__chips">
-                <span class="skill-chip">Git</span>
-                <span class="skill-chip">GitHub</span>
-                <span class="skill-chip">VS Code</span>
-                <span class="skill-chip">Postman</span>
-                <span class="skill-chip">Linux</span>
-                <span class="skill-chip">Figma</span>
-                <span class="skill-chip">Excel</span>
-                <span class="skill-chip">Power BI</span>
-                <span class="skill-chip">Tableau</span>
-              </div>
-            </div>
-
-          </div><!-- /skills-section-card -->
-        </section>
-
-        <hr class="divider" />
-
-        <!-- ── BLOG ── -->
-        <section class="section" id="blog" aria-labelledby="blog-heading">
-          <div class="section__header">
-            <h2 class="section__title" id="blog-heading">Blog</h2>
-            <a href="blog.html" class="section__link" aria-label="View all blog posts">
-              All posts
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Coming Soon placeholder -->
-          <div class="blog-coming-soon" role="status" aria-live="polite">
-            <div class="blog-coming-soon__icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
-              </svg>
-            </div>
-            <h3 class="blog-coming-soon__title">Blog Coming Soon</h3>
-            <p class="blog-coming-soon__desc">
-              I'm working on posts about software engineering, internship journeys, and things I learn along the way. Stay tuned!
-            </p>
-            <a href="blog.html" class="btn btn--primary btn--sm" style="margin-top: 0.5rem;">
-              Visit Blog Page
-            </a>
-          </div>
-        </section>
-
-        <hr class="divider" />
-
-        <!-- ── CONTACT ── -->
-        <section class="section" id="contact" aria-labelledby="contact-heading">
-          <h2 class="section__title" id="contact-heading">Get In Touch</h2>
-
-          <div class="contact-grid">
-            <!-- Info -->
-            <div class="contact-info">
-              <h3 class="contact-info__title">Let's work together!</h3>
-              <p class="contact-info__desc">
-                I'm currently looking for software engineering internship opportunities.
-                Whether you have a question, a project idea, or just want to say hi — my inbox is always open.
-              </p>
-
-              <div class="social-links" aria-label="Social links">
-                <a href="https://github.com/Swopnab" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/swopnabbkarki/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  LinkedIn
-                </a>
-                <a href="mailto:swopnabbikram@gmail.com" class="social-link" aria-label="Email">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                  Email
-                </a>
-              </div>
-            </div>
-
-            <!-- Form -->
-            <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
-              <div class="form-group">
-                <label for="contact-name">Your Name</label>
-                <input type="text" id="contact-name" name="name" placeholder="John Doe" required autocomplete="name" />
-              </div>
-              <div class="form-group">
-                <label for="contact-email">Email Address</label>
-                <input type="email" id="contact-email" name="email" placeholder="john@example.com" required autocomplete="email" />
-              </div>
-              <div class="form-group">
-                <label for="contact-message">Your Message</label>
-                <textarea id="contact-message" name="message" placeholder="Hi Swopnab, I'd love to connect about..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary btn--full" id="contact-submit">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                </svg>
-                Send Message
-              </button>
-            </form>
-
-          </div>
-        </section>
-
-      </main><!-- /main-content -->
-    </div><!-- /layout -->
-  </div><!-- /page-wrapper -->
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__inner">
-      <span class="footer__name">Swopnab Bikram Karki</span>
-      <p class="footer__copy">
-        &copy; <span id="footer-year"></span>
-      </p>
+<section class="jujutsu-section" id="jujutsu" aria-labelledby="jujutsu-title" hidden>
+  <div class="dossier-bar"><p class="eyebrow">OFF-DUTY PROFILE / JUJUTSU MODE</p><div class="dossier-bar-actions"><span>CHARACTER FILE — SK.001</span><button class="replay-intro" type="button">REPLAY INTRO</button><button class="exit-mode" type="button">EXIT MODE <span aria-hidden="true">↗</span></button></div></div>
+  <div class="dossier-grid">
+    <div class="sorcerer-art">
+      <img class="dossier-background" src="assets/swopnab-city.jpg" alt="" width="1280" height="960" loading="lazy">
+      <svg class="domain-seal" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="175"/><circle cx="200" cy="200" r="157"/><circle cx="200" cy="200" r="118"/><path d="m200 34 144 249H56Z M200 366 56 117h288Z M25 200h350M200 25v350"/><circle cx="200" cy="200" r="42"/></svg>
+      <div class="grade-stamp"><span>CLASSIFIED</span><strong>S</strong><span>SPECIAL GRADE</span></div>
+      <img class="sorcerer-portrait" src="assets/swopnab-cutout.png" alt="Swopnab wearing sunglasses, framed by a red domain seal" width="1254" height="1254" loading="lazy">
+      <span class="dossier-side-text" aria-hidden="true">CURIOSITY IS A CURSED TECHNIQUE</span>
+      <div class="sorcerer-caption"><span>THE CODE SORCERER</span><strong>SWOPNAB<span>.</span></strong><p>Quiet focus. Unlimited possibilities.</p></div>
     </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+    <div class="dossier-info">
+      <p class="eyebrow"><span class="red-line"></span> THE DEVELOPER ALTER EGO</p>
+      <h2 id="jujutsu-title">SPECIAL<br>GRADE<span>.</span></h2>
+      <p class="dossier-intro">A little Jujutsu energy, a lot of code.<br>Meet the playful alter ego behind the portfolio.</p>
+      <div class="dossier-group"><h3><span>01</span> BIOGRAPHICAL INFORMATION</h3><dl><div><dt>NAME</dt><dd>Swopnab Bikram Karki</dd></div><div><dt>ALIAS</dt><dd>The Code Sorcerer</dd></div><div><dt>AFFILIATION</dt><dd>University of Texas at Arlington</dd></div></dl></div>
+      <div class="dossier-group"><h3><span>02</span> JUJUTSU CLASSIFICATION</h3><dl><div><dt>GRADE</dt><dd><span class="grade-tag">SPECIAL GRADE</span></dd></div><div><dt>INNATE TECHNIQUE</dt><dd>Logic Manipulation</dd></div><div><dt>CURSED ENERGY</dt><dd>Curiosity, caffeine & a stubborn bug</dd></div></dl></div>
+      <div class="dossier-group"><h3><span>03</span> SIGNATURE ABILITIES</h3><dl><div><dt>GESTURE CONTROL</dt><dd>Hand tracking → CyberSteer</dd></div><div><dt>MEMORY WEAVING</dt><dd>Retrieval & context → Zabum AI</dd></div><div><dt>BARRIER TECHNIQUE</dt><dd>Authentication & roles → SwopMobile</dd></div></dl></div>
+    </div>
+  </div>
+  <div class="technique-showcase" hidden><div class="section-bar"><div><p class="eyebrow">THE TECHNIQUE ARCHIVE</p><h3>Cursed techniques<span>.</span></h3></div><span class="eyebrow">BUILT IN THE REAL WORLD</span></div><div id="technique-carousel"></div></div>
+  <div class="domain-panel"><div><span class="eyebrow">DOMAIN EXPANSION</span><h3>INFINITE BUILD<span>.</span></h3><p>One idea enters. A whole world of possibilities opens.</p></div><button class="button domain-button" type="button" aria-expanded="false" aria-controls="domain-content"><span class="domain-button-label">EXPAND DOMAIN</span><span aria-hidden="true">↗</span></button><div id="domain-content" class="domain-content" hidden><p>Inside this domain, the techniques become real projects.</p><div class="domain-techniques"><a href="https://swopnab.github.io/Hand-controlled-racing-simulation/" target="_blank" rel="noopener"><small>01 / GESTURE CONTROL</small><strong>CyberSteer ↗</strong></a><a href="https://github.com/Swopnab/Zabum-AI" target="_blank" rel="noopener"><small>02 / MEMORY WEAVING</small><strong>Zabum AI ↗</strong></a><a href="https://swopnab.github.io/JWT-auth-service-plus-RBAC/" target="_blank" rel="noopener"><small>03 / BARRIER TECHNIQUE</small><strong>SwopMobile ↗</strong></a></div></div></div>
+</section>
+<section class="links-section" id="links" aria-labelledby="links-title"><div class="section-bar"><div><p class="eyebrow">THE CONNECTION POINTS</p><h2 id="links-title">Find me online<span>.</span></h2></div><p>My work, my story, and a way to say hello.</p></div><div class="link-grid"><a href="https://github.com/Swopnab" target="_blank" rel="noopener"><span class="link-icon">⌘</span><span><strong>GitHub</strong><small>@Swopnab / repositories & code</small></span><span>↗</span></a><a href="https://www.linkedin.com/in/swopnabbkarki/" target="_blank" rel="noopener"><span class="link-icon">in</span><span><strong>LinkedIn</strong><small>Experience & professional connections</small></span><span>↗</span></a><a href="assets/swopnab-karki-resume.pdf" download="Swopnab-Karki-Resume.pdf"><span class="link-icon">↓</span><span><strong>Résumé</strong><small>Education, skills & project experience</small></span><span>↗</span></a><a href="mailto:swopnabbikram@gmail.com"><span class="link-icon">@</span><span><strong>Email</strong><small>swopnabbikram@gmail.com</small></span><span>↗</span></a></div></section>
+<section class="offscreen" aria-labelledby="offscreen-title"><div class="offscreen-title"><span class="eyebrow">A FEW FRAMES / OFFLINE</span><h2 id="offscreen-title">Life beyond<br>the screen<span>.</span></h2><p>A change of scenery.<br>A different kind of focus.</p></div><figure><img src="assets/swopnab-bridge.jpg" alt="Swopnab on the Brooklyn Bridge with the skyline behind him" width="2880" height="3840" loading="lazy"><figcaption>01 / A DIFFERENT PERSPECTIVE</figcaption></figure><figure><img src="assets/swopnab-pool.jpg" alt="Swopnab lining up a shot at a pool table" width="1280" height="1280" loading="lazy"><figcaption>02 / FINDING THE ANGLE</figcaption></figure></section>
+<section class="contact-section" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow"><span class="red-line"></span> LET’S MAKE SOMETHING MATTER</p><h2 id="contact-title">Your next idea.<br>Our next conversation<span>.</span></h2></div><div class="contact-copy"><p>Open to internships, collaborations, and interesting projects. Have something in mind?</p><a class="button primary" href="mailto:swopnabbikram@gmail.com">LET’S TALK <span>↗</span></a><a class="email-link" href="mailto:swopnabbikram@gmail.com">swopnabbikram@gmail.com</a></div></section>
+<footer><span>© <span id="footer-year">2026</span> SWOPNAB BIKRAM KARKI</span><span>BUILT WITH CURIOSITY.</span><a href="#home">BACK TO TOP ↑</a></footer></main></div>
+<nav class="side-rail" aria-label="Section navigation"><a class="rail-brand" href="#home" aria-label="Swopnab home">S<span>.</span></a><div class="rail-links"><a href="#home" aria-label="Home" aria-current="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></a><a href="#projects" aria-label="Projects" ><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 6V3h8v3M3 11h18M10 11v3h4v-3"/></svg><span>Projects</span></a><a href="#skills" aria-label="Skills" ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"/></svg><span>Skills</span></a><a href="#links" aria-label="Links" ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 14 4-4M8 16l-2 2a4 4 0 0 1-6-6l5-5a4 4 0 0 1 6 0M16 8l2-2a4 4 0 0 1 6 6l-5 5a4 4 0 0 1-6 0" transform="translate(1 0) scale(.9)"/></svg><span>Links</span></a><a href="#contact" aria-label="Contact" ><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m2 6 10 8L22 6"/></svg><span>Contact</span></a></div><span class="rail-foot" aria-hidden="true">SK / 26</span></nav><dialog class="domain-intro" id="domain-intro" aria-labelledby="intro-title"><video class="intro-video" id="intro-video" src="assets/domain-expansion.mp4" poster="assets/malevolent-shrine.svg" preload="auto" playsinline muted aria-hidden="true"></video><div class="intro-backdrop" aria-hidden="true"></div><div class="intro-rings" aria-hidden="true"><i></i><i></i><i></i></div><div class="intro-scene" aria-hidden="true"><img src="assets/malevolent-shrine.svg" alt="" width="1440" height="900"><div class="energy-ribbon ribbon-one"></div><div class="energy-ribbon ribbon-two"></div><div class="energy-ribbon ribbon-three"></div></div><div class="intro-grain" aria-hidden="true"></div><div class="intro-top"><span>SWOPNAB / JUJUTSU MODE</span><div class="intro-controls"><button class="intro-sound" type="button" aria-label="Sound" aria-pressed="false">SOUND OFF</button><button class="intro-skip" type="button" autofocus>SKIP INTRO <span aria-hidden="true">↗</span></button></div></div><div class="intro-title"><p>DOMAIN EXPANSION</p><h2 id="intro-title">MALEVOLENT<br>SHRINE<span>.</span></h2><span class="intro-status" aria-live="polite">THE DOMAIN IS FORMING</span></div><div class="intro-bottom"><span>BOUNDLESS CURSED ENERGY</span><div class="intro-progress" aria-hidden="true"><i></i></div><span>ENTERING SPECIAL GRADE</span></div></dialog></body></html>
