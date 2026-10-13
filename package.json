@@ -1,0 +1,12 @@
+{
+  "name": "website",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node tests/browser.cjs",
+    "start": "python3 -m http.server 8000 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

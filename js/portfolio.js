@@ -171,7 +171,7 @@ const mainCarousel = document.createElement('div');
 document.querySelector('.projects-grid').before(mainCarousel);
 createSqueezeCarousel(mainCarousel, projectSlides, 'Featured projects', 'work');
 document.getElementById('projects').classList.add('squeeze-enhanced');
-const techniqueNames = ['Gesture control', 'Barrier technique', 'Opportunity tracking', 'Memory weaving'];
+const techniqueNames = ['Opportunity tracking', 'Gesture control', 'Sound weaving', 'Barrier technique', 'Memory weaving'];
 createSqueezeCarousel(document.getElementById('technique-carousel'), projectSlides.map((slide, i) => ({...slide, category: `${techniqueNames[i]} / ${slide.title}`})), 'Cursed techniques', 'technique');
 document.querySelector('.technique-showcase').hidden = false;
 

@@ -25,3 +25,17 @@ Open http://localhost:4173. No build step or package installation is required.
 
 The portfolio uses `styles/cinematic.css` and `js/portfolio.js`. Media and the
 résumé are in `assets/`. The existing blog pages are retained in the repository.
+
+## Engineering portfolio notes
+
+The featured-project carousel highlights original work: WorkLikeADog, CyberSteer, Music Player and the authentication service, plus Zabum AI. `engineering.html` explains architecture, failure cases, test evidence and limits. Synthetic benchmark numbers are explicitly labeled; no user counts, real-world accuracy or production success rates are invented. Forks are not presented as original projects. WorkLikeADog’s image is its actual static demo; Music Player’s image is the existing library UI.
+
+The optional intro video uses `preload="none"` so ordinary portfolio visits do not eagerly download it. Existing visual modes and project carousel interactions are preserved.
+
+```sh
+npm ci
+npx playwright install chromium --only-shell
+npm test
+```
+
+Free development-only Playwright checks the project links, carousel, engineering notes, deferred-video setting and 390px/768px/1440px layouts with external resources blocked. CI runs the same checks.
