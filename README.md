@@ -7,10 +7,9 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
 ## Features
 
 - Red, black, and white design with personal photography and résumé downloads.
-- Expandable project galleries with live demos and GitHub links.
+- Animated project marquee with tilted previews, pause controls, and live demo links.
 - Skills and tools arranged along a development map.
 - Pointer-driven spotlight effects and subtle card depth.
-- Jujutsu mode with a Special Grade profile, technique gallery, and video intro.
 - Keyboard navigation, mobile layouts, and reduced-motion support.
 
 ## Run locally

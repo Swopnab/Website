@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs><radialGradient id="glow"><stop stop-color="#5b0c20"/><stop offset="1" stop-color="#0c0d10"/></radialGradient></defs>
+  <path fill="url(#glow)" d="M0 0h1280v720H0z"/>
+  <g fill="none" stroke="#ff3047" opacity=".5" stroke-width="2">
+    <ellipse cx="640" cy="340" rx="295" ry="145" transform="rotate(-30 640 340)"/>
+    <ellipse cx="640" cy="340" rx="295" ry="145" transform="rotate(30 640 340)"/>
+    <ellipse cx="640" cy="340" rx="295" ry="145" transform="rotate(90 640 340)"/>
+  </g>
+  <text x="630" y="425" fill="#fafafa" text-anchor="middle" font-family="Georgia,serif" font-size="250">z</text>
+  <path fill="#ff3047" d="m740 214 13 35 35 13-35 13-13 35-13-35-35-13 35-13Z"/>
+  <text x="640" y="635" fill="#ccc" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" letter-spacing="6">MEMORY · CONTEXT · CONVERSATION</text>
+</svg>
