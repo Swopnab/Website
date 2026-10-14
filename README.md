@@ -8,7 +8,10 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
 
 - Red, black, and white design with personal photography and résumé downloads.
 - Animated project marquee with tilted previews, pause controls, and live demo links.
+- Six categorized projects with demos, screenshots, and expandable build notes.
+- Education and project milestones drawn from the résumé.
 - Skills and tools arranged along a development map.
+- A copy-email control and contact links for internships and collaborations.
 - Pointer-driven spotlight effects and subtle card depth.
 - Keyboard navigation, mobile layouts, and reduced-motion support.
 

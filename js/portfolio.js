@@ -1,6 +1,42 @@
 'use strict';
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
+// Filter the case-study cards; the marquee remains a tour of selected work.
+const projectFilterButtons = [...document.querySelectorAll('[data-filter]')];
+const projectCards = [...document.querySelectorAll('[data-project-category]')];
+const projectCount = document.querySelector('.project-count');
+function filterProjects(category) {
+  projectFilterButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+  let visible = 0;
+  projectCards.forEach(card => {
+    card.hidden = category !== 'all' && card.dataset.projectCategory !== category;
+    if (!card.hidden) visible++;
+  });
+  document.querySelectorAll('[data-project-group]').forEach(group => {
+    group.hidden = ![...group.querySelectorAll('[data-project-category]')].some(card => !card.hidden);
+  });
+  projectCount.textContent = `Showing ${visible} ${visible === 1 ? 'project' : 'projects'}`;
+}
+projectFilterButtons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
+document.addEventListener('click', event => {
+  if (event.target.closest('a[href^="#project-"]')) filterProjects('all');
+});
+
+const copyEmailButton = document.querySelector('.copy-email');
+const copyEmailStatus = document.querySelector('.copy-status');
+let copyEmailTimer;
+copyEmailButton.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText('swopnabbikram@gmail.com');
+    copyEmailStatus.textContent = 'Email address copied.';
+    copyEmailButton.textContent = 'COPIED ✓';
+    clearTimeout(copyEmailTimer);
+    copyEmailTimer = setTimeout(() => { copyEmailButton.textContent = 'COPY EMAIL'; }, 2500);
+  } catch {
+    copyEmailStatus.textContent = 'Copy is unavailable. You can contact me using the email link.';
+  }
+});
+
 // Update the rail from the section currently nearest the top of the viewport.
 const railLinks = [...document.querySelectorAll('.rail-links a')];
 const sections = railLinks.map(link => document.querySelector(link.getAttribute('href')));
@@ -59,7 +95,7 @@ if (location.hash === '#jujutsu') history.replaceState(null, '', '#home');
 
 // Share one animation-frame update for pointer depth and the red card spotlight.
 const depthMedia = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)');
-const depthCards = document.querySelectorAll('.project-card, .map-card, .link-grid > a, .marquee-card');
+const depthCards = document.querySelectorAll('.project-card, .map-card, .link-grid > a, .marquee-card, .recent-project, .capability-grid article, .education-card');
 const pointerFrames = new WeakMap();
 function resetDepth(card) {
   const pending = pointerFrames.get(card);
