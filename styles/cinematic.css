@@ -137,3 +137,15 @@
 .contact-copy>.contact-note{font-size:10px;color:#92929e;margin:0;max-width:330px}
 @media(max-width:1050px){.capability-grid article{padding:23px 18px}.capability-grid h3{font-size:30px}.topbar nav{gap:17px;font-size:10px}.background-grid{grid-template-columns:1fr 1.2fr;gap:16px}.education-card{padding:25px}.project-journey{padding:25px 12px}.recent-copy{padding:22px}}
 @media(max-width:760px){.capabilities-section,.background-section{padding:34px 23px}.capabilities-section h2,.background-section h2{font-size:38px}.capability-grid{grid-template-columns:1fr}.capability-grid article{padding:24px}.capability-grid h3 br{display:none}.capability-grid h3{font-size:31px}.capability-proof{margin-top:19px}.capabilities-section .section-bar{align-items:start}.project-browser{display:block}.project-count{margin-top:13px}.project-filters{gap:7px}.project-filters button{font-size:8px;padding:10px 12px}.recent-builds{grid-template-columns:1fr;gap:22px}.recent-copy{padding:23px}.recent-copy h3{font-size:36px}.recent-preview>span{font-size:6px}.background-grid{grid-template-columns:1fr}.education-card{padding:28px}.education-year{font-size:100px}.project-journey{padding:24px 6px 0}.project-journey li{grid-template-columns:60px minmax(0,1fr);gap:10px}.project-journey li>div{padding-left:18px}.project-journey h4{font-size:26px}.project-journey p{font-size:12px}.rail-links a{width:calc(100% / 6)}.rail-links span{font-size:7px}.rail-links svg{width:19px;height:19px}.topbar nav{display:none}.top-status{display:inline-flex;align-items:center;font-size:6.5px;letter-spacing:.02em}.top-status i{width:5px;height:5px;margin-right:6px}.background-section .section-bar>a{font-size:7px}.contact-email{gap:8px}.contact-email .email-link{font-size:10px}}
+
+/* Equal contact paths for career opportunities and project collaborations. */
+.contact-routes{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.contact-route{display:block;border:1px solid var(--line);border-radius:10px;padding:27px;background:#ffffff03;transition:border-color .2s,background .2s}
+.contact-route:hover{border-color:var(--red);background:#ff304709;color:white}
+.contact-route>.eyebrow{font-size:8px;color:var(--red)}
+.contact-route h3{font:500 34px/1.1 var(--display);margin:16px 0 13px}
+.contact-route h3>span{color:var(--red)}
+.contact-route>p{font-size:12px;line-height:1.8;color:var(--muted);max-width:430px}
+.contact-route-action{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);margin-top:22px;padding-top:17px;font-size:8px;letter-spacing:.07em;color:#ddd}
+.contact-route-action>span{color:var(--red);font-size:18px}
+@media(max-width:760px){.contact-routes{grid-template-columns:1fr;gap:16px}.contact-route{padding:24px}.contact-route h3{font-size:31px}.contact-route>.eyebrow{font-size:7px}.contact-route-action{font-size:7px}.top-status{font-size:6px}}
