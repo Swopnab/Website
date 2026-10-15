@@ -1,0 +1,101 @@
+[
+  {
+    "repository": "Website",
+    "title": "Personal Portfolio",
+    "category": "web",
+    "image": "assets/portfolio-demo.png",
+    "summary": "The portfolio you’re exploring: project showcases, responsive layouts, and accessible native motion.",
+    "demo": "https://swopnab-web.vercel.app/",
+    "source": "https://github.com/Swopnab/Website",
+    "language": "HTML",
+    "details": "project-website"
+  },
+  {
+    "repository": "worklikejeff",
+    "title": "WorkLikeADog",
+    "category": "ai",
+    "image": "assets/worklikeadog-demo.png",
+    "summary": "A local workspace for job research, application tracking, and AI-assisted résumé preparation.",
+    "demo": "https://swopnab.github.io/worklikejeff/demo.html",
+    "source": "https://github.com/Swopnab/worklikejeff",
+    "language": "Python",
+    "details": "project-worklikeadog"
+  },
+  {
+    "repository": "Personal-Job-Tracker-app",
+    "title": "Personal Job Tracker",
+    "category": "web",
+    "image": "assets/job-tracker.jpg",
+    "summary": "Organize applications and follow-ups with table and board views and browser storage.",
+    "demo": "https://swopnab.github.io/Personal-Job-Tracker-app/",
+    "source": "https://github.com/Swopnab/Personal-Job-Tracker-app",
+    "language": "JavaScript",
+    "details": "project-job-tracker"
+  },
+  {
+    "repository": "my-react-blog",
+    "title": "SwopBlog",
+    "category": "web",
+    "image": "assets/swopblog-demo.png",
+    "summary": "A blogging app with stories, comments, likes, and a local shared-server mode with JWT accounts.",
+    "demo": "https://swopnab.github.io/my-react-blog/",
+    "source": "https://github.com/Swopnab/my-react-blog",
+    "language": "JavaScript",
+    "details": "project-swopblog"
+  },
+  {
+    "repository": "Music-Player",
+    "title": "Music Player",
+    "category": "interactive",
+    "image": "assets/music-player-demo.png",
+    "summary": "Your own music, playlists, a playback queue, and live internet radio in one browser player.",
+    "demo": "https://swopnab.github.io/Music-Player/",
+    "source": "https://github.com/Swopnab/Music-Player",
+    "language": "JavaScript",
+    "details": "project-music-player"
+  },
+  {
+    "repository": "Hand-controlled-racing-simulation",
+    "title": "CyberSteer",
+    "category": "interactive",
+    "image": "assets/cybersteer.jpg",
+    "summary": "A browser racing game controlled with real-time hand tracking or your keyboard.",
+    "demo": "https://swopnab.github.io/Hand-controlled-racing-simulation/",
+    "source": "https://github.com/Swopnab/Hand-controlled-racing-simulation",
+    "language": "HTML",
+    "details": "project-cybersteer"
+  },
+  {
+    "repository": "f1-agentra",
+    "title": "F1 Agentra",
+    "category": "interactive",
+    "image": "assets/f1-agentra-demo.png",
+    "summary": "An interactive research explorer built around fictional scenarios and human judgment.",
+    "demo": "https://swopnab.github.io/f1-agentra/",
+    "source": "https://github.com/Swopnab/f1-agentra",
+    "language": "CSS",
+    "details": "project-agentra"
+  },
+  {
+    "repository": "JWT-auth-service-plus-RBAC",
+    "title": "SwopMobile",
+    "category": "web",
+    "image": "assets/swopmobile.jpg",
+    "summary": "A serverless workspace with role-based permissions and rotating authentication tokens.",
+    "demo": "https://swopnab.github.io/JWT-auth-service-plus-RBAC/",
+    "source": "https://github.com/Swopnab/JWT-auth-service-plus-RBAC",
+    "language": "HTML",
+    "details": "project-swopmobile"
+  },
+  {
+    "repository": "Zabum-AI",
+    "title": "Zabum AI",
+    "category": "ai",
+    "image": "assets/zabum-ai-poster.svg",
+    "summary": "A local AI assistant with persistent memory, document retrieval, and Ollama inference.",
+    "demo": null,
+    "source": "https://github.com/Swopnab/Zabum-AI",
+    "language": "Python",
+    "details": "project-zabum"
+  }
+]

@@ -29,7 +29,7 @@ sidebar.addEventListener('keydown', event => {
   }
 });
 
-// Filter the case-study cards; the marquee remains a tour of selected work.
+// Filter both the public gallery and its matching build notes.
 const projectFilterButtons = [...document.querySelectorAll('[data-filter]')];
 const projectCards = [...document.querySelectorAll('[data-project-category]')];
 const projectCount = document.querySelector('.project-count');
@@ -43,6 +43,13 @@ function filterProjects(category) {
   document.querySelectorAll('[data-project-group]').forEach(group => {
     group.hidden = ![...group.querySelectorAll('[data-project-category]')].some(card => !card.hidden);
   });
+  document.querySelectorAll('[data-repo-category]').forEach(card => {
+    card.hidden = category !== 'all' && card.dataset.repoCategory !== category;
+  });
+  document.querySelectorAll('.gallery-column').forEach(column => {
+    column.hidden = ![...column.children].some(card => !card.hidden);
+  });
+  document.querySelector('.sticky-project-gallery').classList.toggle('is-filtered', category !== 'all');
   projectCount.textContent = `Showing ${visible} ${visible === 1 ? 'project' : 'projects'}`;
 }
 projectFilterButtons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
@@ -109,21 +116,12 @@ window.addEventListener('resize', queueSectionUpdate);
 window.addEventListener('load', updateActiveSection);
 updateActiveSection();
 
-// Pause the decorative marquee while keeping project links usable.
-const projectMarquee = document.querySelector('.project-marquee');
-const marqueeToggle = document.querySelector('.marquee-toggle');
-marqueeToggle.addEventListener('click', () => {
-  const paused = projectMarquee.classList.toggle('is-paused');
-  marqueeToggle.setAttribute('aria-pressed', String(paused));
-  marqueeToggle.setAttribute('aria-label', paused ? 'Resume project animation' : 'Pause project animation');
-  marqueeToggle.innerHTML = paused ? 'RESUME ANIMATION <span aria-hidden="true">▶</span>' : 'PAUSE ANIMATION <span aria-hidden="true">Ⅱ</span>';
-});
 // Keep legacy links working after retiring the alternate mode.
 if (location.hash === '#jujutsu') history.replaceState(null, '', '#home');
 
 // Share one animation-frame update for pointer depth and the red card spotlight.
 const depthMedia = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)');
-const depthCards = document.querySelectorAll('.project-card, .map-card, .link-grid > a, .marquee-card, .recent-project, .capability-grid article, .education-card');
+const depthCards = document.querySelectorAll('.project-card, .map-card, .link-grid > a, .recent-project, .capability-grid article, .education-card');
 const pointerFrames = new WeakMap();
 function resetDepth(card) {
   const pending = pointerFrames.get(card);
