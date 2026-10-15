@@ -1,6 +1,34 @@
 'use strict';
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
+// The control stays outside the rail so it can always reopen navigation.
+const sidebar = document.getElementById('section-sidebar');
+const sidebarToggle = document.querySelector('.rail-toggle');
+function setSidebarCollapsed(collapsed, persist = true) {
+  if (collapsed && sidebar.contains(document.activeElement)) sidebarToggle.focus();
+  sidebar.hidden = collapsed;
+  document.body.classList.toggle('sidebar-collapsed', collapsed);
+  sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
+  const label = collapsed ? 'Open navigation' : 'Collapse sidebar';
+  sidebarToggle.setAttribute('aria-label', label);
+  sidebarToggle.title = label;
+  if (persist) {
+    try { localStorage.setItem('portfolio-sidebar-collapsed', String(collapsed)); }
+    catch { /* Navigation works when storage is unavailable. */ }
+  }
+}
+let savedSidebarCollapsed = false;
+try { savedSidebarCollapsed = localStorage.getItem('portfolio-sidebar-collapsed') === 'true'; } catch { /* Default to open. */ }
+setSidebarCollapsed(savedSidebarCollapsed, false);
+sidebarToggle.hidden = false;
+sidebarToggle.addEventListener('click', () => setSidebarCollapsed(!sidebar.hidden));
+sidebar.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    setSidebarCollapsed(true);
+  }
+});
+
 // Filter the case-study cards; the marquee remains a tour of selected work.
 const projectFilterButtons = [...document.querySelectorAll('[data-filter]')];
 const projectCards = [...document.querySelectorAll('[data-project-category]')];
@@ -128,3 +156,70 @@ depthCards.forEach(card => {
   card.addEventListener('pointerleave', () => resetDepth(card));
 });
 depthMedia.addEventListener('change', () => depthCards.forEach(resetDepth));
+
+// Native equivalent of the supplied scroll container's perspective transforms.
+// Layout offsets remain stable while the panels themselves are transformed.
+const scrollMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollPanels = [...document.querySelectorAll('.profile-section, .capability-grid article, .recent-project, .project-card, .ai-feature, .map-card, .education-card, .project-journey, .credentials-grid article, .link-grid > a, .offscreen figure, .contact-route')];
+const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-bar > div, .adventure-heading > div, .projects-hero-copy, .offscreen-title, .contact-section > div:first-child')];
+scrollPanels.forEach(panel => panel.classList.add('scroll-panel'));
+scrollHeadings.forEach(heading => heading.classList.add('scroll-heading'));
+const motionTargets = [...scrollPanels, ...scrollHeadings];
+const nearbyMotionTargets = new Set();
+let motionFrame;
+function layoutTop(element) {
+  let top = 0;
+  for (let node = element; node; node = node.offsetParent) top += node.offsetTop;
+  return top;
+}
+function queueScrollMotion() {
+  if (motionFrame || document.hidden) return;
+  motionFrame = requestAnimationFrame(updateScrollMotion);
+}
+function updateScrollMotion() {
+  motionFrame = undefined;
+  if (scrollMotionPreference.matches) {
+    motionTargets.forEach(target => ['--scroll-y', '--scroll-rotate', '--scroll-scale', '--heading-y'].forEach(property => target.style.removeProperty(property)));
+    return;
+  }
+  const height = window.innerHeight;
+  const mobile = window.innerWidth <= 768;
+  const updates = [];
+  nearbyMotionTargets.forEach(target => {
+    if (!target.offsetHeight || target.closest('[hidden]')) return;
+    const top = layoutTop(target) - window.scrollY;
+    const distance = Math.min(target.offsetHeight, height) * .6 + height * .2;
+    const progress = Math.max(0, Math.min(1, (height - top) / distance));
+    updates.push({target, remaining: 1 - progress});
+  });
+  updates.forEach(({target, remaining}) => {
+    if (target.classList.contains('scroll-heading')) {
+      target.style.setProperty('--heading-y', `${(remaining * 16).toFixed(2)}px`);
+    } else {
+      target.style.setProperty('--scroll-rotate', `${(remaining * (mobile ? 9 : 20)).toFixed(2)}deg`);
+      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .04 : .035)).toFixed(4));
+      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 16 : 28)).toFixed(2)}px`);
+    }
+  });
+}
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) nearbyMotionTargets.add(entry.target);
+      else nearbyMotionTargets.delete(entry.target);
+    });
+    queueScrollMotion();
+  }, {rootMargin: '150px 0px'});
+  motionTargets.forEach(target => observer.observe(target));
+} else {
+  motionTargets.forEach(target => nearbyMotionTargets.add(target));
+}
+window.addEventListener('scroll', queueScrollMotion, {passive: true});
+window.addEventListener('resize', queueScrollMotion);
+window.addEventListener('load', queueScrollMotion);
+document.addEventListener('visibilitychange', queueScrollMotion);
+document.addEventListener('toggle', queueScrollMotion, true);
+scrollMotionPreference.addEventListener('change', queueScrollMotion);
+if ('ResizeObserver' in window) new ResizeObserver(queueScrollMotion).observe(document.getElementById('main'));
+if (document.fonts?.ready) document.fonts.ready.then(queueScrollMotion);
+queueScrollMotion();
