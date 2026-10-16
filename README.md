@@ -6,52 +6,50 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
 
 ## Features
 
-- Red, black, and white design with personal photography and résumé downloads.
-- Three-column project gallery with a sticky center on larger screens and a stacked mobile layout.
-- Nine public, non-forked GitHub projects with real screenshots, demos, source links, and build notes.
-- Education and project milestones drawn from the résumé.
-- Skills and tools arranged along a development map.
-- A copy-email control and contact links for internships and collaborations.
-- Pointer-driven spotlight effects and subtle card depth.
-- Keyboard navigation, mobile layouts, and reduced-motion support.
+- Image-independent S. marks in the header and sidebar.
+- Dark glass panels, reflective borders, and a slow red glow; project screenshots
+  and photography keep their source colors.
+- One Projects section with all nine public, non-forked repositories, category
+  filters, demo/source links, and expandable build notes inside the same cards.
+- A sticky glass filter bar with responsive three-, two-, and one-column cards.
+- Four skill areas tied to real project evidence, plus everyday tools.
+- An About section covering Computer Science at UTA, Fall 2028 graduation, and
+  the owner's supplied hobbies and interests.
+- Résumé downloads, public links, a copy-email control, and contact paths for
+  internships and collaborations.
+- Collapsible navigation, keyboard focus styles, and reduced-motion support.
 
 ## Run locally
-
-From the repository directory:
 
 ```sh
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
 Open http://localhost:4173. No build step or package installation is required.
+The active stylesheet is `styles/cinematic.css`; behavior is in `js/portfolio.js`.
+Media and the résumé are in `assets/`. Existing blog files are retained separately.
 
-The portfolio uses `styles/cinematic.css` and `js/portfolio.js`. Media and the
-résumé are in `assets/`. The existing blog pages are retained in the repository.
+## Public projects
 
-## Interface motion and navigation
-
-Photos and project screenshots keep their source colors. The hero uses normal
-layout flow so its actions stay above the metadata bar. The navigation chevron
-collapses/reopens the rail (or mobile dock), supports Escape, and remembers the
-choice locally.
-
-The supplied scroll-container interaction is implemented with native JavaScript
-and CSS in `js/portfolio.js` and `styles/cinematic.css`. Panels tilt and scale as
-they enter the viewport; headings move subtly. Reduced-motion preferences disable
-these transforms. No React, Tailwind, TypeScript, or animation package is required
-for the current static site.
-
-## Public project collection
-
-The October 15, 2026 import uses GitHub’s public owner repository endpoint,
+The October 15, 2026 import uses GitHub's public owner repository endpoint:
 `https://api.github.com/users/Swopnab/repos?type=owner&per_page=100`.
 Forks and private repositories are excluded. `data/public-projects.json` records
-the imported public collection and curated summaries. The gallery is rendered
-in `index.html`; visitors do not need GitHub API access or credentials.
-This is a snapshot, not an automatic live sync.
+the imported public collection and curated summaries. This is a snapshot, not an
+automatic sync. Public cards are rendered in `index.html`, with no visitor API
+calls, access tokens, or backend required.
 
-The supplied `sticky-scroll.tsx` layout is adapted to CSS grid and native sticky
-positioning in `styles/cinematic.css`, preserving the static deployment. The
-center column pins on roomy desktop viewports, with ordinary flow on smaller
-screens and for reduced motion. A slow red gradient lights the left side;
-photos and project screenshots retain their original colors.
+## UI behavior
+
+The supplied UI ideas are adapted natively to the existing static site. The
+project filter bar stays in view while scrolling through the single collection.
+Build notes expand in place. Legacy `#project-details` links redirect to Projects;
+`#background` remains an alias for About. Skill evidence links reveal their target
+project if another category was selected.
+
+Glass panels use translucent gradients, inset highlights, and backdrop blur, with
+an opaque fallback where blur is unavailable. Reduced-motion preferences disable
+scroll transforms and the ambient gradient animation. Navigation collapse/reopen
+remains available and remembers the choice in local storage.
+
+The About section currently uses the owner's existing photos; replacements can
+be added without changing the layout or personal copy.

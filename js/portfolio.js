@@ -29,7 +29,7 @@ sidebar.addEventListener('keydown', event => {
   }
 });
 
-// Filter both the public gallery and its matching build notes.
+// Each public project appears once; filtering preserves its inline build notes.
 const projectFilterButtons = [...document.querySelectorAll('[data-filter]')];
 const projectCards = [...document.querySelectorAll('[data-project-category]')];
 const projectCount = document.querySelector('.project-count');
@@ -40,22 +40,17 @@ function filterProjects(category) {
     card.hidden = category !== 'all' && card.dataset.projectCategory !== category;
     if (!card.hidden) visible++;
   });
-  document.querySelectorAll('[data-project-group]').forEach(group => {
-    group.hidden = ![...group.querySelectorAll('[data-project-category]')].some(card => !card.hidden);
-  });
-  document.querySelectorAll('[data-repo-category]').forEach(card => {
-    card.hidden = category !== 'all' && card.dataset.repoCategory !== category;
-  });
-  document.querySelectorAll('.gallery-column').forEach(column => {
-    column.hidden = ![...column.children].some(card => !card.hidden);
-  });
-  document.querySelector('.sticky-project-gallery').classList.toggle('is-filtered', category !== 'all');
   projectCount.textContent = `Showing ${visible} ${visible === 1 ? 'project' : 'projects'}`;
 }
 projectFilterButtons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
 document.addEventListener('click', event => {
   if (event.target.closest('a[href^="#project-"]')) filterProjects('all');
 });
+// Preserve older shared URLs after consolidating the project gallery.
+if (location.hash === '#project-details') {
+  history.replaceState(null, '', '#projects');
+  document.getElementById('projects').scrollIntoView({behavior: 'instant'});
+}
 
 const copyEmailButton = document.querySelector('.copy-email');
 const copyEmailStatus = document.querySelector('.copy-status');
@@ -119,47 +114,11 @@ updateActiveSection();
 // Keep legacy links working after retiring the alternate mode.
 if (location.hash === '#jujutsu') history.replaceState(null, '', '#home');
 
-// Share one animation-frame update for pointer depth and the red card spotlight.
-const depthMedia = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)');
-const depthCards = document.querySelectorAll('.project-card, .map-card, .link-grid > a, .recent-project, .capability-grid article, .education-card');
-const pointerFrames = new WeakMap();
-function resetDepth(card) {
-  const pending = pointerFrames.get(card);
-  if (pending) cancelAnimationFrame(pending);
-  pointerFrames.delete(card);
-  ['--rotate-x', '--rotate-y', '--spot-x', '--spot-y', '--glow-active'].forEach(property => card.style.removeProperty(property));
-}
-depthCards.forEach(card => {
-  card.setAttribute('data-spotlight', '');
-  card.addEventListener('pointermove', event => {
-    if (!depthMedia.matches || event.pointerType === 'touch') return;
-    const pending = pointerFrames.get(card);
-    if (pending) cancelAnimationFrame(pending);
-    const clientX = event.clientX;
-    const clientY = event.clientY;
-    pointerFrames.set(card, requestAnimationFrame(() => {
-      pointerFrames.delete(card);
-      const bounds = card.getBoundingClientRect();
-      const x = clientX - bounds.left;
-      const y = clientY - bounds.top;
-      card.style.setProperty('--spot-x', `${x.toFixed(2)}px`);
-      card.style.setProperty('--spot-y', `${y.toFixed(2)}px`);
-      card.style.setProperty('--glow-active', '1');
-      if (card.matches('.project-card, .map-card')) {
-        card.style.setProperty('--rotate-x', `${(-(y / bounds.height - .5) * 4).toFixed(2)}deg`);
-        card.style.setProperty('--rotate-y', `${((x / bounds.width - .5) * 5).toFixed(2)}deg`);
-      }
-    }));
-  });
-  card.addEventListener('pointerleave', () => resetDepth(card));
-});
-depthMedia.addEventListener('change', () => depthCards.forEach(resetDepth));
-
 // Native equivalent of the supplied scroll container's perspective transforms.
 // Layout offsets remain stable while the panels themselves are transformed.
 const scrollMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const scrollPanels = [...document.querySelectorAll('.profile-section, .capability-grid article, .recent-project, .project-card, .ai-feature, .map-card, .education-card, .project-journey, .credentials-grid article, .link-grid > a, .offscreen figure, .contact-route')];
-const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-bar > div, .adventure-heading > div, .projects-hero-copy, .offscreen-title, .contact-section > div:first-child')];
+const scrollPanels = [...document.querySelectorAll('.project-card, .skill-panel, .tool-belt, .about-portrait, .about-story, .interest-card, .life-gallery figure, .credentials-grid article, .link-grid > a, .contact-route')];
+const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-header > div, .section-bar > div, .life-heading, .contact-section > div:first-child')];
 scrollPanels.forEach(panel => panel.classList.add('scroll-panel'));
 scrollHeadings.forEach(heading => heading.classList.add('scroll-heading'));
 const motionTargets = [...scrollPanels, ...scrollHeadings];
@@ -194,9 +153,9 @@ function updateScrollMotion() {
     if (target.classList.contains('scroll-heading')) {
       target.style.setProperty('--heading-y', `${(remaining * 16).toFixed(2)}px`);
     } else {
-      target.style.setProperty('--scroll-rotate', `${(remaining * (mobile ? 9 : 20)).toFixed(2)}deg`);
-      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .04 : .035)).toFixed(4));
-      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 16 : 28)).toFixed(2)}px`);
+      target.style.setProperty('--scroll-rotate', `${(remaining * (mobile ? 1 : 3)).toFixed(2)}deg`);
+      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .01 : .015)).toFixed(4));
+      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 10 : 16)).toFixed(2)}px`);
     }
   });
 }
