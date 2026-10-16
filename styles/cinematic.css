@@ -322,3 +322,123 @@ footer { display: flex; align-items: center; justify-content: space-between; fle
  .scroll-panel, .scroll-heading { transform: none !important; }
  .project-preview:hover img { transform: none; }
 }
+
+/* A single skills directory, followed by services grounded in the public work. */
+.section-intro { max-width: 350px; }
+.section-intro>p { color: var(--muted); font-size: 14px; }
+.section-intro .text-link { margin-top: 10px; }
+.toolkit-panel { padding: 8px; }
+.toolkit-panel-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 27px 25px 30px; }
+.toolkit-panel-heading h3 { font: 500 34px/1.1 var(--display); margin-top: 10px; }
+.toolkit-directory { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.toolkit-group { padding: 26px; border-top: 1px solid var(--line); min-width: 0; }
+.toolkit-group:nth-child(odd) { border-right: 1px solid var(--line); }
+.toolkit-label { display: flex; gap: 14px; align-items: start; }
+.toolkit-label>span { font: 500 21px/1.2 var(--display); color: #ff7184; padding-top: 3px; }
+.toolkit-group h3 { font: 500 29px/1.1 var(--display); }
+.toolkit-group p { font-size: 13px; line-height: 1.7; color: var(--muted); margin-top: 8px; }
+.toolkit-group .skill-chips { margin: 20px 0 0; gap: 8px; }
+.toolkit-group .skill-chips li { font-size: 12px; }
+.services-heading { padding-top: 54px; margin-bottom: 28px; scroll-margin-top: 24px; }
+.services-heading h3 { font: 500 clamp(35px,3.5vw,49px)/1.08 var(--display); margin: 13px 0 18px; }
+.services-heading h3 span { color: var(--red); }
+.services-heading>p:last-child { color: var(--muted); font-size: 15px; }
+.services-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; align-items: stretch; }
+.service-card { min-width: 0; display: flex; flex-direction: column; padding: 28px; }
+.service-number { font-size: 10px; color: #ff8191; letter-spacing: .08em; }
+.service-card h3 { font: 500 33px/1.1 var(--display); margin: 23px 0 16px; }
+.service-card>p { color: #c0c1cb; font-size: 14px; line-height: 1.8; }
+.service-card>.service-deliverables { color: #9fa1af; font-size: 12px; padding: 18px 0 24px; }
+.service-actions { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); margin-top: auto; padding-top: 8px; }
+.service-actions a { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 44px; font-size: 12px; }
+.service-actions a:first-child { color: #ff7d8e; }
+.service-actions a span { color: var(--red); }
+.services-invitation { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 32px; margin-top: 22px; }
+.services-invitation p { font-size: 14px; color: var(--muted); }
+.services-invitation strong { font: 500 29px/1.25 var(--display); color: white; }
+
+/* Certificate-inspired information cards; credential links are supplied separately. */
+.certificate-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 21px; }
+.certificate-card { padding: 10px; min-width: 0; }
+.certificate-paper { position: relative; display: flex; flex-direction: column; min-height: 380px; height: 100%; padding: 25px; border: 1px solid #ffffff27; border-radius: 14px; background: radial-gradient(ellipse at 100% 0%,#ffffff08,transparent 60%); }
+.certificate-paper::after { content: ''; position: absolute; left: 25px; right: 25px; bottom: 16px; height: 2px; background: linear-gradient(90deg,var(--red),#ff304720 65%,transparent); pointer-events: none; }
+.certificate-topline { display: flex; justify-content: space-between; align-items: center; gap: 18px; font-size: 10px; letter-spacing: .08em; color: #d0d0d9; }
+.certificate-emblem { display: grid; place-items: center; flex: 0 0 35px; width: 35px; height: 35px; border: 1px solid #ff30475c; border-radius: 50%; color: #ff7a8b; background: #ff30470a; font-size: 21px; }
+.certificate-rule { width: 40px; height: 2px; background: var(--red); margin: 24px 0; }
+.certificate-recipient { font-size: 10px; letter-spacing: .1em; color: var(--muted); }
+.certificate-paper h3 { font: 500 29px/1.12 var(--display); margin: 14px 0 23px; }
+.certificate-paper dl { margin: 0 0 23px; }
+.certificate-paper dl>div { margin-top: 14px; }
+.certificate-paper dt { font-size: 9px; color: #ff8c9c; letter-spacing: .1em; }
+.certificate-paper dd { font-size: 13px; color: #d0d1db; margin: 5px 0 0; }
+.certificate-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 5px 16px; border-top: 1px solid var(--line); margin-top: auto; padding: 13px 0 8px; }
+.certificate-footer>span { font-size: 8px; color: #9a9ca9; letter-spacing: .07em; }
+.certificate-footer a { font-size: 11px; min-height: 44px; display: flex; align-items: center; gap: 12px; }
+.certificate-footer a span { color: var(--red); }
+
+/* The supplied container's perspective/scale behavior, across page content. */
+.scroll-panel { transform: perspective(1000px) translateY(var(--scroll-y,0px)) rotateX(var(--scroll-rotate,0deg)) scale(var(--scroll-scale,1)); transform-origin: 50% 50%; backface-visibility: hidden; }
+.scroll-panel:focus-within { transform: none; }
+@media(max-width:1150px) {
+ .services-grid, .certificate-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .service-card { padding: 26px; }
+ .certificate-paper { min-height: 390px; }
+}
+@media(max-width:900px) {
+ .section-intro { max-width: 430px; margin-top: 18px; }
+ .toolkit-panel-heading { align-items: start; }
+ .toolkit-panel-heading h3 { font-size: 31px; }
+ .toolkit-group { padding: 24px; }
+ .services-invitation { display: block; }
+ .services-invitation .button { margin-top: 22px; }
+}
+@media(max-width:600px) {
+ .toolkit-directory, .services-grid, .certificate-grid { grid-template-columns: 1fr; }
+ .toolkit-panel-heading { display: block; padding: 23px 18px; }
+ .toolkit-panel-heading .text-link { margin-top: 14px; }
+ .toolkit-panel-heading h3 { font-size: 32px; }
+ .toolkit-group { padding: 25px 18px; }
+ .toolkit-group:nth-child(odd) { border-right: 0; }
+ .toolkit-group h3 { font-size: 28px; }
+ .toolkit-group p { font-size: 13px; }
+ .toolkit-group .skill-chips { gap: 7px; }
+ .toolkit-group .skill-chips li { font-size: 12px; padding: 6px 9px; }
+ .services-heading { padding-top: 42px; }
+ .services-heading h3 { font-size: 37px; }
+ .service-card { padding: 26px; }
+ .service-card h3 { font-size: 34px; }
+ .service-card>p { font-size: 15px; }
+ .service-card>.service-deliverables { font-size: 12px; }
+ .services-invitation { padding: 26px; }
+ .services-invitation .button { font-size: 10px; gap: 15px; }
+ .certificate-paper { padding: 24px; min-height: 390px; }
+ .certificate-paper h3 { font-size: 31px; }
+ .certificate-topline { font-size: 10px; }
+}
+
+/* Wider certificate proportions keep long titles and issuer details legible. */
+.credentials-section h2 { font-size: clamp(42px,4.5vw,64px); }
+.certificate-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.certificate-paper { min-height: 390px; padding: 27px; }
+.certificate-rule { margin: 20px 0 18px; }
+.certificate-paper h3 { margin: 14px 0 18px; max-width: 540px; }
+.certificate-paper dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 20px; margin-bottom: 22px; }
+.certificate-paper dl>div:last-child { grid-column: 1/-1; }
+@media(max-width:600px) {
+ .certificate-grid { grid-template-columns: 1fr; }
+ .certificate-paper { padding: 24px; }
+ .certificate-paper dl { grid-template-columns: 1fr; }
+}
+
+.toolkit-controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding: 0 26px 26px; }
+.skill-search { display: flex; align-items: center; gap: 12px; width: min(100%,410px); padding: 0 15px; border: 1px solid #ffffff32; border-radius: 13px; background: #07090e55; }
+.skill-search:focus-within { border-color: #ff8494; outline: 1px solid #ff304766; }
+.skill-search>span[aria-hidden] { font-size: 24px; color: #cccdd6; }
+.skill-search input { min-width: 0; width: 100%; min-height: 48px; font: 13px var(--body); border: 0; outline: none; color: white; background: transparent; }
+.skill-search input::placeholder { color: #a8aab7; opacity: 1; }
+.skill-search-count { color: var(--muted); font-size: 11px; }
+.toolkit-empty { padding: 15px 26px 30px; color: var(--muted); font-size: 14px; }
+@media(max-width:600px) { .toolkit-controls { padding: 0 18px 25px; gap: 12px; } .skill-search { width: 100%; } }
+.toolkit-directory.is-searching { grid-template-columns: 1fr; }
+.toolkit-directory.is-searching .toolkit-group { border-right: 0; }
+.skill-chips li { max-width: 100%; overflow-wrap: anywhere; }

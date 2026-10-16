@@ -1,0 +1,71 @@
+{
+  "profile": "https://www.linkedin.com/in/swopnabbkarki/",
+  "source": "https://www.linkedin.com/in/swopnabbkarki/details/certifications/",
+  "checked": "2026-10-15",
+  "certificates": [
+    {
+      "title": "Microsoft Azure Essentials Professional Certificate by Microsoft and LinkedIn",
+      "issuer": "Microsoft",
+      "issued": "2026-03",
+      "type": "Professional certificate",
+      "focus": "Microsoft Azure · Cloud Computing",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/63c4ec634acc00b4a8d3004fb86e7eb48639eb9f62a2507d4341f5a0f4e540bd/"
+    },
+    {
+      "title": "Career Essentials in GitHub Professional Certificate",
+      "issuer": "GitHub",
+      "issued": "2026-03",
+      "type": "Professional certificate",
+      "focus": "GitHub",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/42d26b879a79efa6ce4ff33175dbd5333b97931577d84d02eab8ac8720fb6c0b/"
+    },
+    {
+      "title": "Cybersecurity Foundations",
+      "issuer": "LinkedIn",
+      "issued": "2026-03",
+      "type": "Course certificate",
+      "focus": "Cybersecurity",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/c8bdb5b89002f331ff713ba583108b6b054613476f720ab88b89a1fa72f01b0e/"
+    },
+    {
+      "title": "Career Essentials in Software Development by Microsoft and LinkedIn",
+      "issuer": "Microsoft",
+      "issued": "2025-11",
+      "type": "Learning path certificate",
+      "focus": "Programming · Software Development",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/ee21681b038bc4bbfb1aa798b058afc060ce73ed1582cf4e5217b821ff876f3d/"
+    },
+    {
+      "title": "Microsoft Azure AI Essentials Professional Certificate by Microsoft and LinkedIn",
+      "issuer": "Microsoft",
+      "issued": "2025-11",
+      "type": "Professional certificate",
+      "focus": "Generative AI · Azure AI Studio",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/09a15c65e4f8368a37b2ed359db15ed56471ba1053cda7c85bf9d83c78f29406/"
+    },
+    {
+      "title": "Excel Essential Training (Microsoft 365)",
+      "issuer": "LinkedIn",
+      "issued": null,
+      "type": "Course certificate",
+      "focus": "Microsoft Excel",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/1aab446c99887b5aa4fdc7469bf2c0cfe043b9d7a541dd5a23f1428c19e46d18/"
+    },
+    {
+      "title": "Microsoft Azure AI Essentials: Workloads and Machine Learning on Azure",
+      "issuer": "LinkedIn",
+      "issued": null,
+      "type": "Course certificate",
+      "focus": "Azure AI Foundry · Machine Learning",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/0cf49ca2bfc664a755686ee2d9dccb39b53360d2e470aa5f1351a3a528dbffa0/"
+    },
+    {
+      "title": "Apple Search Ads Certification",
+      "issuer": "Apple",
+      "issued": "2024-07",
+      "type": "Certification",
+      "focus": "Apple Search Ads",
+      "credentialUrl": "https://certification-searchads.apple.com/certificate/wO07w3UhzC"
+    }
+  ]
+}

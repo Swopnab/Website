@@ -2,7 +2,7 @@
 
 A responsive portfolio built with HTML, CSS, and JavaScript.
 
-[View the website](https://swopnab-web.vercel.app/)
+[View the website](https://swopnabbkarki.com/)
 
 ## Features
 
@@ -12,7 +12,10 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
 - One Projects section with all nine public, non-forked repositories, category
   filters, demo/source links, and expandable build notes inside the same cards.
 - A sticky glass filter bar with responsive three-, two-, and one-column cards.
-- Four skill areas tied to real project evidence, plus everyday tools.
+- A searchable, categorized directory combining all 68 LinkedIn-listed skills
+  with résumé and profile details (116 distinct skills/tools).
+- Six project-backed service offerings with contact and example links.
+- Eight certificate-style cards with issuers, listed dates, and direct credential links.
 - An About section covering Computer Science at UTA, Fall 2028 graduation, and
   the owner's supplied hobbies and interests.
 - Résumé downloads, public links, a copy-email control, and contact paths for
@@ -48,8 +51,44 @@ project if another category was selected.
 
 Glass panels use translucent gradients, inset highlights, and backdrop blur, with
 an opaque fallback where blur is unavailable. Reduced-motion preferences disable
-scroll transforms and the ambient gradient animation. Navigation collapse/reopen
+scroll transforms and the ambient gradient animation. Content panels across
+the site use the supplied scroll-container style: perspective tilt, scale, and
+heading movement, with smaller transforms on phones. Navigation collapse/reopen
 remains available and remembers the choice in local storage.
 
 The About section currently uses the owner's existing photos; replacements can
 be added without changing the layout or personal copy.
+
+## Primary domain and release verification
+
+The primary public portfolio is **https://swopnabbkarki.com/**. Prioritize this
+custom domain for all updates and user-facing links. After every publication,
+verify the new page, stylesheet, scripts, and key interactions on this domain
+before considering the release complete. The Vercel hostname is a secondary
+diagnostic endpoint; verifying it alone is insufficient.
+
+## Skills and credentials
+
+`data/skills.json` and `data/certifications.json` record the October 15, 2026
+import from the owner's LinkedIn profile, plus résumé-backed toolkit entries.
+Skill display aliases normalize names such as React.js/React and HTML/HTML5.
+All 68 profile skills remain represented. Credential dates are shown only where
+listed on LinkedIn, with no invented expiry dates or verification claims.
+The Apple credential link is the destination of the profile's public outbound
+link; LinkedIn's tracking wrapper is not published.
+
+This is an explicit import, not a live LinkedIn connection. No account session,
+private analytics, credentials, or tokens are included in the site. Public visitors
+can follow each credential link without receiving the owner's session.
+
+See [scroll integration notes](docs/scroll-animation.md) for the native behavior
+and optional React/TypeScript/Tailwind/shadcn setup for the original TSX.
+
+Before publishing an edit to CSS or JavaScript, run:
+
+```sh
+python3 scripts/version-assets.py
+```
+
+This gives the two asset URLs a content-based version so a new HTML release asks
+for its matching stylesheet and behavior through the primary domain's cache.

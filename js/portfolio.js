@@ -52,6 +52,29 @@ if (location.hash === '#project-details') {
   document.getElementById('projects').scrollIntoView({behavior: 'instant'});
 }
 
+// Search the combined directory without hiding or removing any source records.
+const skillSearch = document.querySelector('.skill-search input');
+if (skillSearch) {
+  const skillGroups = [...document.querySelectorAll('.toolkit-group')];
+  const skillChips = [...document.querySelectorAll('.toolkit-group .skill-chips li')];
+  const skillSearchCount = document.querySelector('.skill-search-count');
+  const skillEmpty = document.querySelector('.toolkit-empty');
+  skillSearch.addEventListener('input', () => {
+    const query = skillSearch.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    skillChips.forEach(chip => {
+      chip.hidden = !chip.textContent.toLocaleLowerCase().includes(query);
+      if (!chip.hidden) visible++;
+    });
+    skillGroups.forEach(group => {
+      group.hidden = ![...group.querySelectorAll('li')].some(chip => !chip.hidden);
+    });
+    document.querySelector('.toolkit-directory').classList.toggle('is-searching', query.length > 0);
+    skillSearchCount.textContent = `${visible} ${visible === 1 ? 'skill or tool' : 'skills & tools'}`;
+    skillEmpty.hidden = visible > 0;
+  });
+}
+
 const copyEmailButton = document.querySelector('.copy-email');
 const copyEmailStatus = document.querySelector('.copy-status');
 let copyEmailTimer;
@@ -117,8 +140,8 @@ if (location.hash === '#jujutsu') history.replaceState(null, '', '#home');
 // Native equivalent of the supplied scroll container's perspective transforms.
 // Layout offsets remain stable while the panels themselves are transformed.
 const scrollMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const scrollPanels = [...document.querySelectorAll('.project-card, .skill-panel, .tool-belt, .about-portrait, .about-story, .interest-card, .life-gallery figure, .credentials-grid article, .link-grid > a, .contact-route')];
-const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-header > div, .section-bar > div, .life-heading, .contact-section > div:first-child')];
+const scrollPanels = [...document.querySelectorAll('.project-card, .toolkit-group, .service-card, .services-invitation, .about-portrait, .about-story, .interest-card, .life-gallery figure, .certificate-card, .link-grid > a, .contact-route')];
+const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-header > div, .toolkit-panel-heading, .services-heading, .life-heading, .contact-section > div:first-child')];
 scrollPanels.forEach(panel => panel.classList.add('scroll-panel'));
 scrollHeadings.forEach(heading => heading.classList.add('scroll-heading'));
 const motionTargets = [...scrollPanels, ...scrollHeadings];
@@ -151,11 +174,12 @@ function updateScrollMotion() {
   });
   updates.forEach(({target, remaining}) => {
     if (target.classList.contains('scroll-heading')) {
-      target.style.setProperty('--heading-y', `${(remaining * 16).toFixed(2)}px`);
+      target.style.setProperty('--heading-y', `${(remaining * 40).toFixed(2)}px`);
     } else {
-      target.style.setProperty('--scroll-rotate', `${(remaining * (mobile ? 1 : 3)).toFixed(2)}deg`);
-      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .01 : .015)).toFixed(4));
-      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 10 : 16)).toFixed(2)}px`);
+      const maxRotate = target.classList.contains('toolkit-group') ? (mobile ? 4 : 10) : (mobile ? 7 : 20);
+      target.style.setProperty('--scroll-rotate', `${(remaining * maxRotate).toFixed(2)}deg`);
+      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .04 : .03)).toFixed(4));
+      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 18 : 32)).toFixed(2)}px`);
     }
   });
 }
@@ -178,5 +202,6 @@ document.addEventListener('visibilitychange', queueScrollMotion);
 document.addEventListener('toggle', queueScrollMotion, true);
 scrollMotionPreference.addEventListener('change', queueScrollMotion);
 if ('ResizeObserver' in window) new ResizeObserver(queueScrollMotion).observe(document.getElementById('main'));
+window.addEventListener('hashchange', () => { queueSectionUpdate(); queueScrollMotion(); });
 if (document.fonts?.ready) document.fonts.ready.then(queueScrollMotion);
 queueScrollMotion();
