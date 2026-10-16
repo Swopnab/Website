@@ -156,8 +156,10 @@
   reduceMotion.addEventListener('change', () => render(false));
   const scene = workbench.querySelector('.orbit-scene');
   function sizeOrbit() {
-    const gutter = window.innerWidth <= 600 ? 64 : 102;
-    scene.style.setProperty('--orbit-radius', `${Math.min(178, Math.max(60, (scene.clientWidth - gutter) / 2))}px`);
+    const compact = window.innerWidth <= 600;
+    const horizontalSpace = (scene.clientWidth - (compact ? 64 : 102)) / 2;
+    const verticalSpace = (scene.clientHeight - (compact ? 78 : 106)) / 2;
+    scene.style.setProperty('--orbit-radius', `${Math.max(60, Math.min(178, horizontalSpace, verticalSpace))}px`);
   }
   if ('ResizeObserver' in window) new ResizeObserver(sizeOrbit).observe(scene);
   else window.addEventListener('resize', sizeOrbit);
