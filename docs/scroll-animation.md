@@ -7,7 +7,11 @@ are in `styles/cinematic.css` and page behavior is in `js/portfolio.js`.
 The requested component's perspective, rotation, scale, and heading movement are
 implemented natively across project cards, the combined skills directory,
 services, About, photos, certificates, public links, and contact routes. Desktop
-panels enter with up to 20 degrees of tilt; phone transforms are smaller. No
+panels enter with up to 28 degrees of tilt, 12% scale growth, and 88px of lift.
+Phone panels use up to 14 degrees, 8% growth, and 48px of lift. The entrance
+continues from the bottom to the upper fifth of the viewport, so even short
+cards visibly move while scrolling. Headings lift by up to 72px (44px on phones).
+Skills groups use a smaller tilt to preserve chip readability. No
 content is placed in a fixed-height clipping frame. Keyboard focus flattens its
 panel, and reduced-motion preferences disable all transforms and ambient motion.
 Fixed navigation and the sticky project filter bar remain stable.

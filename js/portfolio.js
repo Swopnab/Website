@@ -168,18 +168,20 @@ function updateScrollMotion() {
   nearbyMotionTargets.forEach(target => {
     if (!target.offsetHeight || target.closest('[hidden]')) return;
     const top = layoutTop(target) - window.scrollY;
-    const distance = Math.min(target.offsetHeight, height) * .6 + height * .2;
+    // Keep the entrance moving until the panel reaches the upper viewport.
+    // A viewport-based range also gives short cards a visible animation.
+    const distance = height * .8;
     const progress = Math.max(0, Math.min(1, (height - top) / distance));
     updates.push({target, remaining: 1 - progress});
   });
   updates.forEach(({target, remaining}) => {
     if (target.classList.contains('scroll-heading')) {
-      target.style.setProperty('--heading-y', `${(remaining * 40).toFixed(2)}px`);
+      target.style.setProperty('--heading-y', `${(remaining * (mobile ? 44 : 72)).toFixed(2)}px`);
     } else {
-      const maxRotate = target.classList.contains('toolkit-group') ? (mobile ? 4 : 10) : (mobile ? 7 : 20);
+      const maxRotate = target.classList.contains('toolkit-group') ? (mobile ? 10 : 18) : (mobile ? 14 : 28);
       target.style.setProperty('--scroll-rotate', `${(remaining * maxRotate).toFixed(2)}deg`);
-      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .04 : .03)).toFixed(4));
-      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 18 : 32)).toFixed(2)}px`);
+      target.style.setProperty('--scroll-scale', (1 - remaining * (mobile ? .08 : .12)).toFixed(4));
+      target.style.setProperty('--scroll-y', `${(remaining * (mobile ? 48 : 88)).toFixed(2)}px`);
     }
   });
 }
