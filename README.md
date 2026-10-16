@@ -14,6 +14,8 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
 - A sticky glass filter bar with responsive three-, two-, and one-column cards.
 - A searchable, categorized directory combining all 68 LinkedIn-listed skills
   with résumé and profile details (116 distinct skills/tools).
+- An interactive orbital toolkit with ten categories, connected skills, pause
+  controls, and an alternate list view. See [integration notes](docs/orbital-toolkit.md).
 - Six project-backed service offerings with contact and example links.
 - Eight certificate-style cards with issuers, listed dates, and direct credential links.
 - An About section covering Computer Science at UTA, Fall 2028 graduation, and
@@ -90,5 +92,5 @@ Before publishing an edit to CSS or JavaScript, run:
 python3 scripts/version-assets.py
 ```
 
-This gives the two asset URLs a content-based version so a new HTML release asks
+This gives active CSS and JavaScript URLs a content-based version so a new HTML release asks
 for its matching stylesheet and behavior through the primary domain's cache.

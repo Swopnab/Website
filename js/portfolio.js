@@ -52,9 +52,9 @@ if (location.hash === '#project-details') {
   document.getElementById('projects').scrollIntoView({behavior: 'instant'});
 }
 
-// Search the combined directory without hiding or removing any source records.
+// Search fallback when the enhanced orbital component cannot load.
 const skillSearch = document.querySelector('.skill-search input');
-if (skillSearch) {
+if (skillSearch && !document.querySelector('.orbital-ready')) {
   const skillGroups = [...document.querySelectorAll('.toolkit-group')];
   const skillChips = [...document.querySelectorAll('.toolkit-group .skill-chips li')];
   const skillSearchCount = document.querySelector('.skill-search-count');
@@ -140,7 +140,7 @@ if (location.hash === '#jujutsu') history.replaceState(null, '', '#home');
 // Native equivalent of the supplied scroll container's perspective transforms.
 // Layout offsets remain stable while the panels themselves are transformed.
 const scrollMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const scrollPanels = [...document.querySelectorAll('.project-card, .toolkit-group, .service-card, .services-invitation, .about-portrait, .about-story, .interest-card, .life-gallery figure, .certificate-card, .link-grid > a, .contact-route')];
+const scrollPanels = [...document.querySelectorAll('.project-card, .orbital-workbench, .toolkit-group, .service-card, .services-invitation, .about-portrait, .about-story, .interest-card, .life-gallery figure, .certificate-card, .link-grid > a, .contact-route')].filter(panel => !panel.matches('.orbital-ready .toolkit-group'));
 const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-header > div, .toolkit-panel-heading, .services-heading, .life-heading, .contact-section > div:first-child')];
 scrollPanels.forEach(panel => panel.classList.add('scroll-panel'));
 scrollHeadings.forEach(heading => heading.classList.add('scroll-heading'));
