@@ -97,5 +97,49 @@
     "source": "https://github.com/Swopnab/Zabum-AI",
     "language": "Python",
     "details": "project-zabum"
+  },
+  {
+    "repository": "beast-brawl",
+    "title": "Beast Brawl",
+    "category": "interactive",
+    "image": "assets/beast-brawl-demo.png",
+    "summary": "An arcade fighter with 30 original creatures, combos, bot opponents, and live two-player rooms.",
+    "demo": "https://swopnab.github.io/beast-brawl/",
+    "source": "https://github.com/Swopnab/beast-brawl",
+    "language": "JavaScript",
+    "details": "project-beast-brawl"
+  },
+  {
+    "repository": "beast-brawl-arcade",
+    "title": "Beast Brawl Arcade",
+    "category": "interactive",
+    "image": "assets/beast-brawl-arcade-demo.png",
+    "summary": "A 3D arcade fighter with 12 original creatures, five worlds, online rooms, and touch controls.",
+    "demo": "https://swopnab.github.io/beast-brawl-arcade/",
+    "source": "https://github.com/Swopnab/beast-brawl-arcade",
+    "language": "JavaScript",
+    "details": "project-beast-brawl-arcade"
+  },
+  {
+    "repository": "the-button",
+    "title": "The Button",
+    "category": "interactive",
+    "image": "assets/the-button-demo.png",
+    "summary": "A multiplayer game of patience and betrayal for 2–8 friends, with live rooms and solo practice.",
+    "demo": "https://swopnab.github.io/the-button/",
+    "source": "https://github.com/Swopnab/the-button",
+    "language": "JavaScript",
+    "details": "project-the-button"
+  },
+  {
+    "repository": "Unstuck",
+    "title": "Unstuck",
+    "category": "web",
+    "image": "assets/unstuck-demo.jpg",
+    "summary": "A student planner that breaks coursework into doable steps, with focus timers and a study-activity skyline.",
+    "demo": null,
+    "source": "https://github.com/Swopnab/Unstuck",
+    "language": "TypeScript",
+    "details": "project-unstuck"
   }
 ]

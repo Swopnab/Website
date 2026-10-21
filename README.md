@@ -9,7 +9,7 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
 - Image-independent S. marks in the header and sidebar.
 - Dark glass panels, reflective borders, and a slow red glow; project screenshots
   and photography keep their source colors.
-- One Projects section with all nine public, non-forked repositories, category
+- One Projects section with all thirteen public, non-forked repositories, category
   filters, demo/source links, and expandable build notes inside the same cards.
 - A perspective project stream that freezes on hover/focus, with direct demo/source links
   and an alternate list view. Phones use swipeable cards.
@@ -37,7 +37,7 @@ Media and the résumé are in `assets/`. Existing blog files are retained separa
 
 ## Public projects
 
-The October 15, 2026 import uses GitHub's public owner repository endpoint:
+The October 20, 2026 refresh uses GitHub's public owner repository endpoint:
 `https://api.github.com/users/Swopnab/repos?type=owner&per_page=100`.
 Forks and private repositories are excluded. `data/public-projects.json` records
 the imported public collection and curated summaries. This is a snapshot, not an

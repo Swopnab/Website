@@ -2,7 +2,7 @@
 
 The supplied ImageStreamHero corridor geometry is adapted natively in
 `components/ui/image-stream-hero.js`, with styles in `styles/project-stream.css`.
-The two perspective rails contain the original nine project articles, once each.
+The two perspective rails contain the thirteen public, non-forked project articles, once each.
 Their screenshots, natural colors, demo/source URLs, IDs, category filters, and
 build notes are preserved. No external repository scripts run in the browser.
 
@@ -26,3 +26,7 @@ For a future React port, use the optional Vite/shadcn setup documented in
 `docs/orbital-toolkit.md`, put the supplied component in
 `src/components/ui/image-stream-hero.tsx`, and keep the interactive anchors,
 hover/focus freeze, source data, and static/reduced-motion alternative.
+
+The October 20 refresh adds Beast Brawl, Beast Brawl Arcade, The Button, and
+Unstuck. The games link to their public demos. Unstuck links to local setup
+because its hosted preview is owner-only; no private preview access is exposed.
