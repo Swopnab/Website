@@ -6,7 +6,7 @@
   const root = document.querySelector('.toolkit-panel');
   const directory = root?.querySelector('.toolkit-directory');
   const search = root?.querySelector('.skill-search input');
-  if (!directory || !search) return;
+  if (!directory || !search || !window.PortfolioArcPicker) return;
   const groups = [...directory.querySelectorAll('.toolkit-group')];
   const count = root.querySelector('.skill-search-count');
   const empty = root.querySelector('.toolkit-empty');
@@ -26,149 +26,114 @@
   if (groups.length !== categories.length) return;
   const names = groups.map(group => group.querySelector('h3').textContent);
   const total = groups.reduce((sum, group) => sum + group.querySelectorAll('li').length, 0);
-  let active = 2;
-  let paused = false;
+  let active = null;
+  let pinned = false;
   let listView = false;
-
   const workbench = document.createElement('div');
   workbench.className = 'orbital-workbench';
   workbench.id = 'skill-system';
-  // All template values are local constants or numeric indexes, never remote HTML.
+  // Only local, fixed markup is templated. Profile/search values use textContent.
   workbench.innerHTML = `
-    <div class="orbit-map">
-      <div class="orbit-caption"><span class="eyebrow">CONNECTED BY CURIOSITY</span><span>10 categories / ${total} skills</span></div>
-      <div class="orbit-scene" role="group" aria-label="Explore skill categories">
-        <div class="orbit-ring orbit-ring-outer" aria-hidden="true"></div>
-        <div class="orbit-ring orbit-ring-inner" aria-hidden="true"></div>
-        <div class="orbit-crosshair" aria-hidden="true"></div>
-        <div class="orbit-core" aria-hidden="true"><span>S<span>.</span></span><small>THE TOOLKIT</small></div>
-        <div class="orbit-track">
-          ${categories.map(([label, icon], index) => `<div class="orbit-position" style="--node-angle:${index * 36}deg"><button type="button" class="orbit-node" data-orbit-node="${index}" aria-pressed="false" aria-controls="skill-category-${index}"><span class="orbit-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon}</svg></span><span class="orbit-node-label" data-number="${String(index + 1).padStart(2, '0')}">${label}</span></button></div>`).join('')}
-        </div>
+    <div class="orbit-caption"><span class="eyebrow">A CONNECTED TOOLKIT</span><span>10 categories / ${total} skills</span></div>
+    <div class="orbit-stage">
+      <div class="orbit-scene" role="group" aria-label="Hover or focus a skill category">
+        <div class="orbit-ring orbit-ring-outer" aria-hidden="true"></div><div class="orbit-ring orbit-ring-inner" aria-hidden="true"></div><div class="orbit-crosshair" aria-hidden="true"></div>
+        <div class="orbit-core" aria-hidden="true"><span>S<span>.</span></span><small>ALWAYS EXPLORING</small></div>
+        <div class="orbit-track">${categories.map(([label, icon], index) => `<div class="orbit-position" style="--node-angle:${index * 36}deg"><button type="button" class="orbit-node" data-orbit-node="${index}" aria-pressed="false" aria-controls="skill-category-${index}"><span class="orbit-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon}</svg></span><span class="orbit-node-label" data-number="${String(index+1).padStart(2,'0')}">${label}</span></button></div>`).join('')}</div>
       </div>
-      <p class="orbit-instruction">Select a node to look inside.<br><span>Hover or focus to hold the orbit.</span></p>
-      <label class="orbit-picker">Choose a category<select aria-label="Choose a skill category">${categories.map((_, index) => `<option value="${index}"></option>`).join('')}</select></label>
-      <div class="orbit-controls"><button type="button" class="orbit-play" aria-pressed="false">Pause orbit <span aria-hidden="true">Ⅱ</span></button><button type="button" class="orbit-view" aria-pressed="false">List view <span aria-hidden="true">☷</span></button></div>
+      <div class="orbit-detail glass-panel" hidden>
+        <div class="orbit-detail-bar"><p class="eyebrow">INSIDE THE TOOLKIT</p><button type="button" class="orbit-close" aria-label="Close skill details">×</button></div>
+        <p class="orbit-result-note" hidden></p><p class="orbit-selection-status sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div class="orbit-related"><p class="eyebrow">CONNECTED CATEGORIES</p><div></div></div>
+      </div>
     </div>
-    <div class="orbit-detail">
-      <div class="orbit-detail-bar"><p class="eyebrow">INSIDE THE TOOLKIT</p><button class="orbit-close" type="button" aria-label="Close skill category">×</button></div>
-      <p class="orbit-result-note" hidden></p>
-      <div class="orbit-overview" hidden><p class="eyebrow">A LITTLE BIT OF EVERYTHING</p><h3>Pick your starting point<span>.</span></h3><p>Explore the orbit to see my languages, tools, and practical skills. Connected categories show how they come together.</p><button type="button" class="orbit-start">Explore AI & vision <span aria-hidden="true">↗</span></button></div>
-      <p class="orbit-selection-status sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
-      <div class="orbit-related"><p class="eyebrow">CONNECTED CATEGORIES</p><div></div></div>
-    </div>`;
+    <p class="orbit-instruction">Hover to discover. Tap to keep it open.<br><span>The orbit keeps moving. Explore the arc below.</span></p>
+    <div class="orbit-arc-shell"><div class="orbit-arc"></div><p id="skill-arc-instructions">Drag sideways or use arrow keys to explore categories.</p></div>
+    <div class="orbit-controls"><button type="button" class="orbit-view" aria-pressed="false">Browse all skills <span aria-hidden="true">↗</span></button></div>`;
   directory.before(workbench);
   const detail = workbench.querySelector('.orbit-detail');
-  detail.insertBefore(directory, workbench.querySelector('.orbit-related'));
-  detail.insertBefore(empty, workbench.querySelector('.orbit-related'));
-  const nodes = [...workbench.querySelectorAll('[data-orbit-node]')];
-  const select = workbench.querySelector('select');
+  const scene = workbench.querySelector('.orbit-scene');
   const related = workbench.querySelector('.orbit-related');
-  const overview = workbench.querySelector('.orbit-overview');
+  detail.insertBefore(directory, related);
+  detail.insertBefore(empty, related);
+  const nodes = [...workbench.querySelectorAll('.orbit-node')];
   const close = workbench.querySelector('.orbit-close');
-  const play = workbench.querySelector('.orbit-play');
   const view = workbench.querySelector('.orbit-view');
+  const note = workbench.querySelector('.orbit-result-note');
   const status = workbench.querySelector('.orbit-selection-status');
-  const resultNote = workbench.querySelector('.orbit-result-note');
-  groups.forEach((group, index) => {
-    group.id = `skill-category-${index}`;
-    nodes[index].setAttribute('aria-label', names[index]);
-    select.options[index].textContent = names[index];
-  });
-
+  const picker = new window.PortfolioArcPicker(workbench.querySelector('.orbit-arc'), categories.map(([label], index) => ({label, name:names[index]})), index => choose(index, true));
+  groups.forEach((group, index) => { group.id = `skill-category-${index}`; });
   function render(announce = true) {
     const query = search.value.trim().toLocaleLowerCase();
     const matches = groups.map(group => {
-      let found = 0;
-      group.querySelectorAll('li').forEach(chip => {
-        chip.hidden = !chip.textContent.toLocaleLowerCase().includes(query);
-        if (!chip.hidden) found++;
-      });
+      let found=0;
+      group.querySelectorAll('li').forEach(chip=>{chip.hidden=!chip.textContent.toLocaleLowerCase().includes(query);if(!chip.hidden)found++;});
       return found;
     });
-    const found = matches.reduce((sum, value) => sum + value, 0);
-    // Filtering changes selection only when the current category has no results.
-    if (query && (active === null || matches[active] === 0)) active = matches.findIndex(value => value > 0);
-    if (active === -1) active = null;
-    groups.forEach((group, index) => { group.hidden = !matches[index] || (!listView && active !== index); });
-    nodes.forEach((node, index) => {
-      node.setAttribute('aria-pressed', String(!listView && active === index));
-      node.setAttribute('aria-disabled', String(!matches[index]));
-      node.classList.toggle('is-related', !listView && active !== null && categories[active][2].includes(index) && matches[index] > 0);
-      node.setAttribute('aria-label', `${names[index]}, ${matches[index]} ${query ? 'matching ' : ''}${matches[index] === 1 ? 'skill or tool' : 'skills and tools'}`);
-      select.options[index].disabled = !matches[index];
-      select.options[index].textContent = `${String(index + 1).padStart(2, '0')} / ${names[index]}${query ? ` (${matches[index]})` : ''}`;
+    const found=matches.reduce((sum,n)=>sum+n,0);
+    if (query && (active===null || !matches[active])) active=matches.findIndex(n=>n>0);
+    if (active===-1) active=null;
+    groups.forEach((group,index)=>{group.hidden=!matches[index]||(!listView&&active!==index);});
+    nodes.forEach((node,index)=>{
+      node.setAttribute('aria-pressed',String(!listView&&active===index));
+      node.setAttribute('aria-disabled',String(!matches[index]));
+      node.setAttribute('aria-label',`${names[index]}, ${matches[index]} ${query?'matching ':''}${matches[index]===1?'skill or tool':'skills and tools'}`);
+      node.classList.toggle('is-related',active!==null&&categories[active][2].includes(index)&&matches[index]>0);
+      picker.buttons[index].disabled=!matches[index];
     });
-    select.value = active === null ? '' : String(active);
-    count.textContent = `${found} ${found === 1 ? 'skill or tool' : 'skills & tools'}`;
-    empty.hidden = found > 0;
-    resultNote.hidden = !query || listView || !found;
-    resultNote.textContent = query && found ? `${matches[active]} of ${found} matches shown here. Choose another lit node, or use List view to see all matches.` : '';
-    overview.hidden = listView || active !== null || found === 0;
-    close.hidden = listView || active === null || !!query;
-    related.hidden = listView || active === null;
+    picker.set(active);
+    detail.hidden=!listView&&active===null&&found>0;
+    workbench.classList.toggle('has-detail',!detail.hidden&&!listView);
+    workbench.classList.toggle('is-list',listView);
+    count.textContent=`${found} ${found===1?'skill or tool':'skills & tools'}`;
+    empty.hidden=found>0;
+    close.hidden=listView;
+    note.hidden=!query||listView||!found;
+    note.textContent=query&&found?`${matches[active]} of ${found} matches. Choose another lit node or browse all skills to see every match.`:'';
+    related.hidden=listView||active===null;
     related.lastElementChild.replaceChildren();
-    if (active !== null) {
-      categories[active][2].filter(index => matches[index] > 0).forEach(index => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.textContent = `${categories[index][0]} ↗`;
-        button.addEventListener('click', () => choose(index, true));
-        related.lastElementChild.append(button);
-      });
-      related.hidden = listView || !related.lastElementChild.children.length;
-    }
-    workbench.classList.toggle('is-paused', paused || !!query || listView || reduceMotion.matches);
-    workbench.classList.toggle('is-list', listView);
-    play.textContent = paused ? 'Resume orbit ↻' : 'Pause orbit Ⅱ';
-    play.disabled = !!query;
-    if (query) play.textContent = 'Search holds orbit';
-    play.setAttribute('aria-pressed', String(paused));
-    play.hidden = reduceMotion.matches || listView;
-    view.textContent = listView ? 'Orbit view ◎' : 'List view ☷';
-    view.setAttribute('aria-pressed', String(listView));
-    directory.classList.toggle('is-searching', query.length > 0);
-    if (announce) status.textContent = found === 0 ? 'No matching skills.' : listView ? `List view. ${found} skills and tools.` : active === null ? 'Category closed. Choose another node.' : `${names[active]}. ${matches[active]} ${query ? 'matching ' : ''}skills and tools.`;
+    if(active!==null)categories[active][2].filter(i=>matches[i]>0).forEach(index=>{
+      const button=document.createElement('button');button.type='button';button.textContent=`${categories[index][0]} ↗`;
+      button.addEventListener('click',()=>{choose(index,true);close.focus({preventScroll:true});});related.lastElementChild.append(button);
+    });
+    if(!related.lastElementChild.children.length)related.hidden=true;
+    view.textContent=listView?'Back to orbit ◎':'Browse all skills ↗';
+    view.setAttribute('aria-pressed',String(listView));
+    directory.classList.toggle('is-searching',!!query);
+    if(announce)status.textContent=found===0?'No matching skills.':listView?`${found} skills and tools.`:active===null?'Skill details closed.':`${names[active]}. ${matches[active]} skills and tools.`;
   }
-  function choose(index, moveFocus = false) {
-    if (nodes[index].getAttribute('aria-disabled') === 'true') return;
-    active = index;
-    paused = true;
-    render();
-    // Connected buttons are replaced on selection; put focus on a stable control.
-    if (moveFocus) nodes[index].focus({preventScroll: true});
+  function choose(index,pin=false) {
+    if(nodes[index].getAttribute('aria-disabled')==='true')return;
+    active=index;pinned=pin;render();
   }
-  nodes.forEach((node, index) => node.addEventListener('click', () => choose(index)));
-  select.addEventListener('change', () => choose(Number(select.value)));
-  search.addEventListener('input', () => render());
-  play.addEventListener('click', () => { paused = !paused; render(false); });
-  view.addEventListener('click', () => { listView = !listView; render(); });
-  function closeCategory() {
-    if (active !== null) nodes[active].focus({preventScroll: true});
-    active = null;
-    render();
+  function dismiss() {
+    active=null;pinned=false;
+    if(search.value) {search.value='';}
+    picker.set(null);render();
   }
-  close.addEventListener('click', closeCategory);
-  workbench.querySelector('.orbit-start').addEventListener('click', () => choose(2, true));
-  workbench.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !listView && active !== null && !search.value) { event.preventDefault(); closeCategory(); }
+  nodes.forEach((node,index)=>{
+    node.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch'&&!pinned)choose(index);});
+    node.addEventListener('focus',()=>{if(!pinned)choose(index);});
+    // Select on contact so a moving node cannot escape between press and release.
+    node.addEventListener('pointerdown',event=>{if(event.isPrimary&&event.button===0)choose(index,true);});
+    node.addEventListener('click',()=>choose(index,true));
   });
-  reduceMotion.addEventListener('change', () => render(false));
-  const scene = workbench.querySelector('.orbit-scene');
+  // The hover card stays available while moving from a node into its content.
+  workbench.addEventListener('pointerleave',()=>{if(!pinned&&!search.value&&!listView&&!workbench.contains(document.activeElement))dismiss();});
+  workbench.addEventListener('focusout',event=>{if(!pinned&&!search.value&&!listView&&!workbench.contains(event.relatedTarget)&&!workbench.matches(':hover'))dismiss();});
+  close.addEventListener('click',()=>{const previous=active;dismiss();if(previous!==null){pinned=true;nodes[previous].focus({preventScroll:true});pinned=false;}});
+  workbench.addEventListener('keydown',event=>{if(event.key==='Escape'&&!listView){event.preventDefault();dismiss();search.focus({preventScroll:true});}});
+  search.addEventListener('input',()=>{pinned=!!search.value;render();});
+  view.addEventListener('click',()=>{listView=!listView;if(!listView){active=null;pinned=false;}render();});
   function sizeOrbit() {
-    const compact = window.innerWidth <= 600;
-    const horizontalSpace = (scene.clientWidth - (compact ? 64 : 102)) / 2;
-    const verticalSpace = (scene.clientHeight - (compact ? 78 : 106)) / 2;
-    scene.style.setProperty('--orbit-radius', `${Math.max(60, Math.min(178, horizontalSpace, verticalSpace))}px`);
+    const compact=window.innerWidth<=600;
+    const radius=Math.max(64,Math.min(290,(scene.clientWidth-(compact?68:160))/2,(scene.clientHeight-(compact?90:140))/2));
+    scene.style.setProperty('--orbit-radius',`${radius}px`);
   }
-  if ('ResizeObserver' in window) new ResizeObserver(sizeOrbit).observe(scene);
-  else window.addEventListener('resize', sizeOrbit);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(entries => workbench.classList.toggle('is-offscreen', !entries[0].isIntersecting)).observe(workbench);
-  }
-  document.addEventListener('visibilitychange', () => workbench.classList.toggle('is-background', document.hidden));
+  if('ResizeObserver'in window)new ResizeObserver(sizeOrbit).observe(scene);else window.addEventListener('resize',sizeOrbit);
+  if('IntersectionObserver'in window)new IntersectionObserver(entries=>workbench.classList.toggle('is-offscreen',!entries[0].isIntersecting)).observe(workbench);
+  document.addEventListener('visibilitychange',()=>workbench.classList.toggle('is-background',document.hidden));
   root.classList.add('orbital-ready');
-  root.querySelector('.toolkit-panel-heading h3').textContent = 'Explore my skill system.';
-  sizeOrbit();
-  render(false);
+  root.querySelector('.toolkit-panel-heading h3').textContent='Everything connects.';
+  sizeOrbit();render(false);
 })();

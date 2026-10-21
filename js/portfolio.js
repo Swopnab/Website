@@ -41,6 +41,7 @@ function filterProjects(category) {
     if (!card.hidden) visible++;
   });
   projectCount.textContent = `Showing ${visible} ${visible === 1 ? 'project' : 'projects'}`;
+  document.dispatchEvent(new Event('portfolio:projects-filtered'));
 }
 projectFilterButtons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
 document.addEventListener('click', event => {
@@ -140,7 +141,7 @@ if (location.hash === '#jujutsu') history.replaceState(null, '', '#home');
 // Native equivalent of the supplied scroll container's perspective transforms.
 // Layout offsets remain stable while the panels themselves are transformed.
 const scrollMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const scrollPanels = [...document.querySelectorAll('.project-card, .orbital-workbench, .toolkit-group, .service-card, .services-invitation, .about-portrait, .about-story, .interest-card, .life-gallery figure, .certificate-card, .link-grid > a, .contact-route')].filter(panel => !panel.matches('.orbital-ready .toolkit-group'));
+const scrollPanels = [...document.querySelectorAll('.project-stream, .project-card, .orbital-workbench, .toolkit-group, .service-card, .services-invitation, .about-portrait, .about-story, .interest-card, .life-gallery figure, .curiosity-film, .certificate-card, .link-grid > a, .contact-route')].filter(panel => !panel.matches('.orbital-ready .toolkit-group, .stream-ready .project-card'));
 const scrollHeadings = [...document.querySelectorAll('.hero-copy, .section-header > div, .toolkit-panel-heading, .services-heading, .life-heading, .contact-section > div:first-child')];
 scrollPanels.forEach(panel => panel.classList.add('scroll-panel'));
 scrollHeadings.forEach(heading => heading.classList.add('scroll-heading'));

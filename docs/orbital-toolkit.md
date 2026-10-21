@@ -1,47 +1,42 @@
-# Orbital toolkit integration
+# Orbital toolkit and arc picker
 
-The supplied radial orbital timeline is adapted for the existing static portfolio
-in `components/ui/radial-orbital-timeline.js`. Component styles live in
-`styles/orbital-toolkit.css`; global styles remain in `styles/cinematic.css`.
-Both component assets load before `js/portfolio.js` and receive content hashes
-from `python3 scripts/version-assets.py`.
+The supplied React UI is adapted for the existing static portfolio. Shared
+components live in `components/ui/arc-picker.js` and
+`components/ui/radial-orbital-timeline.js`; scoped styles live in
+`styles/orbital-toolkit.css`. No React runtime, unused packages, or remote
+component scripts are installed. Global styling and existing scroll transforms
+remain in `styles/cinematic.css` and `js/portfolio.js`.
 
-The ten existing skill groups are the nodes. Selecting one pauses the orbit,
-shows its original skill article, and highlights connected categories. No source
-skills are duplicated or dropped. Search covers all 116 entries, selects a
-matching category, and dims categories without matches. The alternate list view
-shows all matches together. Services and certificate cards keep their own content.
-No invented energy scores, skill levels, completion statuses, or dates are used.
+The orbit is large and centered. Nothing is selected on load. Hover or keyboard
+focus previews the original skill article; tap/click keeps it open. The detail
+panel is inside the orbit on desktop and below it on phones. Escape or the close
+control dismisses it. Moving from a node into its detail panel does not dismiss
+it. The orbit continues while hovered/selected, with no pause button. It stops
+only for reduced-motion preferences, offscreen work, or a background tab.
 
-Rotation uses synchronized CSS transforms, pauses on hover/focus and selection,
-and stops when offscreen, in a background tab, or when reduced motion is enabled.
-The pause control can resume a selected orbit. Nodes are keyboard buttons; Escape
-closes the current category, a close button is provided, and a native category
-picker supports small screens. Without JavaScript, the original complete skill
-directory remains readable. If only the orbital script fails, the existing
-search behavior in `js/portfolio.js` remains available.
+The supplied ArcPicker idea becomes a native curved radio-button picker with
+bracketed selection, sideways dragging, short flick momentum, horizontal wheel
+or Shift-wheel selection, arrow keys, Home, and End. Ordinary vertical wheel and
+vertical touch gestures remain page scrolling. Search covers all 116 skills;
+related categories and the alternate complete list remain available. Values are
+written as text, not parsed as user-provided markup.
 
-## React / shadcn setup if migrating later
+If either enhancement cannot load, the original complete skills directory and
+fallback search remain available. Cards are not duplicated. No invented skill
+levels, energy scores, dates, or completed-status claims are displayed.
 
-This codebase has no React root, TypeScript compiler, Tailwind build, or shadcn
-registry. Adding unused TSX files and dependencies would not render the component.
-The live integration therefore uses native DOM and CSS equivalents.
+## Optional React migration
 
-For a separate React/TypeScript migration, initialize the shadcn Vite template:
+For a separate React/TypeScript migration:
 
 ```sh
 npx shadcn@latest init -t vite
-npx shadcn@latest add badge button card
-npm install lucide-react class-variance-authority @radix-ui/react-slot
+npm install motion
 ```
 
-Follow the [official Vite setup](https://ui.shadcn.com/docs/installation/vite) for
-Tailwind and the `@/*` alias. Place the React component in
-`src/components/ui/radial-orbital-timeline.tsx`, with `@/*` mapped to `src/*`;
-put global styles in `src/index.css`. A shared `components/ui` directory keeps
-reusable components separate from page content. The native version already uses
-the root `components/ui` directory for that purpose.
-
-If porting the original TSX, replace clickable divs with buttons, avoid updating
-other state inside a state updater, use a responsive radius and separate detail
-panel, respect reduced motion, and remove the sample timeline/energy data.
+Follow the [official shadcn Vite setup](https://ui.shadcn.com/docs/installation/vite)
+for TypeScript, Tailwind, and the `@/*` alias. Place the supplied TSX in
+`src/components/ui/arc-picker.tsx`, map `@/*` to `src/*`, and use `src/index.css`
+for global styles. The component imports `motion/react`, so its package is
+`motion`. The shared `components/ui` convention separates reusable components
+from page content; the native integration already uses that directory.

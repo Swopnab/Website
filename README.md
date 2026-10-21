@@ -11,11 +11,12 @@ A responsive portfolio built with HTML, CSS, and JavaScript.
   and photography keep their source colors.
 - One Projects section with all nine public, non-forked repositories, category
   filters, demo/source links, and expandable build notes inside the same cards.
-- A sticky glass filter bar with responsive three-, two-, and one-column cards.
+- A perspective project stream that freezes on hover/focus, with direct demo/source links
+  and an alternate list view. Phones use swipeable cards.
 - A searchable, categorized directory combining all 68 LinkedIn-listed skills
   with résumé and profile details (116 distinct skills/tools).
-- An interactive orbital toolkit with ten categories, connected skills, pause
-  controls, and an alternate list view. See [integration notes](docs/orbital-toolkit.md).
+- A large centered orbital toolkit with ten continuously moving categories, hover/tap
+  details, a curved category picker, and an alternate list view. See [integration notes](docs/orbital-toolkit.md).
 - Six project-backed service offerings with contact and example links.
 - Eight certificate-style cards with issuers, listed dates, and direct credential links.
 - An About section covering Computer Science at UTA, Fall 2028 graduation, and
@@ -58,8 +59,12 @@ the site use the supplied scroll-container style: perspective tilt, scale, and
 heading movement, with smaller transforms on phones. Navigation collapse/reopen
 remains available and remembers the choice in local storage.
 
-The About section currently uses the owner's existing photos; replacements can
-be added without changing the layout or personal copy.
+The About section uses the owner's existing photos and a self-hosted 9.875-second
+creative film above Beyond the Code. The supplied 8-second film is preserved and
+a 1.875-second blur/zoom return bridges the study room to the opening frame.
+The audio bridge matches the original start at the loop boundary. Native controls
+let visitors start playback and sound; the clip loops without forced autoplay.
+No new AI footage was generated for the extension.
 
 ## Primary domain and release verification
 

@@ -378,7 +378,7 @@ footer { display: flex; align-items: center; justify-content: space-between; fle
 
 /* The supplied container's perspective/scale behavior, across page content. */
 .scroll-panel { transform: perspective(1000px) translateY(var(--scroll-y,0px)) rotateX(var(--scroll-rotate,0deg)) scale(var(--scroll-scale,1)); transform-origin: 50% 50%; backface-visibility: hidden; }
-.scroll-panel:focus-within { transform: none; }
+.scroll-panel:focus-within:not(.project-stream):not(.orbital-workbench) { transform: none; }
 @media(max-width:1150px) {
  .services-grid, .certificate-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
  .service-card { padding: 26px; }
@@ -442,3 +442,10 @@ footer { display: flex; align-items: center; justify-content: space-between; fle
 .toolkit-directory.is-searching { grid-template-columns: 1fr; }
 .toolkit-directory.is-searching .toolkit-group { border-right: 0; }
 .skill-chips li { max-width: 100%; overflow-wrap: anywhere; }
+
+/* Keep the complete portrait film visible, with native playback and sound controls. */
+.curiosity-film { max-width: 440px; margin: 50px auto 40px; overflow: hidden; }
+.curiosity-film video { display: block; width: 100%; height: auto; max-height: 75svh; object-fit: contain; background: #08090b; }
+.curiosity-film figcaption { padding: 20px 22px; }
+.curiosity-film figcaption p { margin: 10px 0; color: #f4f4f6; font-size: 17px; line-height: 1.5; }
+.film-note { color: #b8bac5; font-size: 14px; line-height: 1.5; }

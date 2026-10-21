@@ -1,0 +1,48 @@
+.project-stream { container-type:inline-size; }
+.stream-topline { display:flex; align-items:center; justify-content:space-between; gap:20px; margin:0 0 18px; }
+.stream-topline p { color:var(--muted); font-size:13px; }
+.stream-view { min-height:44px; padding:9px 15px; border:1px solid #ffffff35; border-radius:10px; background:#ffffff05; color:white; font-size:12px; white-space:nowrap; }
+.stream-stage { position:relative; height:clamp(440px,59vw,680px); perspective:36cqw; perspective-origin:50% 50%; overflow:clip; border:1px solid var(--line); border-radius:24px; background:radial-gradient(ellipse at 50% 50%,#ff304710,transparent 65%),#08090c; }
+.stream-ready:not(.is-list):not(.is-single) .project-grid { display:block; position:absolute; inset:0; transform-style:preserve-3d; }
+.stream-ready:not(.is-list):not(.is-single) .stream-item { position:absolute; left:50%; top:50%; width:28cqw; height:32cqw; margin-left:-14cqw; margin-top:-16cqw; animation-duration:40s; animation-timing-function:linear; animation-iteration-count:infinite; backface-visibility:hidden; }
+.stream-ready:not(.is-list):not(.is-single) .project-card { height:100%; display:flex; flex-direction:column; transform:none; background:#18171c; border-color:#ffffff40; border-radius:1cqw; box-shadow:0 2cqw 6cqw #0008; }
+.stream-ready:not(.is-list):not(.is-single) .project-preview { flex:0 0 51%; min-height:0; aspect-ratio:auto; padding:.7cqw; }
+.stream-ready:not(.is-list):not(.is-single) .project-preview img { object-fit:contain; }
+.stream-ready:not(.is-list):not(.is-single) .project-open { width:2.8cqw; height:2.8cqw; right:.7cqw; top:.7cqw; font-size:1.4cqw; }
+.stream-ready:not(.is-list):not(.is-single) .project-copy { flex:1; min-height:0; padding:1.2cqw; display:flex; flex-direction:column; }
+.stream-ready:not(.is-list):not(.is-single) .project-meta { font-size:.8cqw; }
+.stream-ready:not(.is-list):not(.is-single) .project-copy h3 { font-size:2.5cqw; margin:.6cqw 0; }
+.stream-ready:not(.is-list):not(.is-single) .project-copy>p { font-size:1.05cqw; line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.stream-ready:not(.is-list):not(.is-single) .project-copy>.demo-note,.stream-ready:not(.is-list):not(.is-single) .project-case { display:none; }
+.stream-ready:not(.is-list):not(.is-single) .project-actions { margin-top:auto; padding-top:.4cqw; gap:.5cqw; }
+.stream-ready:not(.is-list):not(.is-single) .project-actions a { font-size:1cqw; min-height:3.2cqw; gap:.5cqw; }
+.project-stream:hover .stream-item,.project-stream:focus-within .stream-item,.project-stream:is(.is-touch-held,.is-offscreen,.is-background) .stream-item { animation-play-state:paused; }
+.stream-ready.is-list .stream-stage,.stream-ready.is-single .stream-stage { height:auto; perspective:none; overflow:visible; border:0; background:none; }
+.stream-ready:is(.is-list,.is-single) .stream-item { animation:none; }
+.stream-ready:is(.is-list,.is-single) .project-grid { display:grid; }
+.stream-view:hover { border-color:#ff7e91; }
+@media(max-width:600px) {
+ .stream-topline { display:block; }
+ .stream-topline p { margin-bottom:12px; }
+ .stream-stage { height:420px; }
+ /* Touch screens keep the same rail idea with large usable cards and horizontal browsing. */
+ .stream-ready:not(.is-list):not(.is-single) .stream-stage { perspective:none; overflow:auto; scroll-snap-type:x mandatory; }
+ .stream-ready:not(.is-list):not(.is-single) .project-grid { display:flex; position:relative; align-items:stretch; padding:20px; gap:18px; min-height:100%; }
+ .stream-ready:not(.is-list):not(.is-single) .stream-item { position:relative; inset:auto; flex:0 0 88%; width:auto; height:auto; margin:0; animation:none; scroll-snap-align:center; }
+ .stream-ready:not(.is-list):not(.is-single) .project-card { border-radius:14px; min-height:350px; }
+ .stream-ready:not(.is-list):not(.is-single) .project-preview { flex-basis:48%; min-height:150px; padding:8px; }
+ .stream-ready:not(.is-list):not(.is-single) .project-copy { padding:16px; }
+ .stream-ready:not(.is-list):not(.is-single) .project-meta { font-size:10px; }
+ .stream-ready:not(.is-list):not(.is-single) .project-copy h3 { font-size:29px; margin:8px 0; }
+ .stream-ready:not(.is-list):not(.is-single) .project-copy>p { font-size:13px; }
+ .stream-ready:not(.is-list):not(.is-single) .project-open { width:32px; height:32px; font-size:17px; right:10px; top:10px; }
+ .stream-ready:not(.is-list):not(.is-single) .project-actions a { font-size:12px; min-height:44px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .stream-ready:not(.is-list):not(.is-single) .stream-item { animation-play-state:paused!important; }
+ /* A static list keeps every project accessible when motion is reduced. */
+ .stream-ready .stream-stage { height:auto!important; overflow:visible!important; perspective:none!important; border:0; background:none; }
+ .stream-ready .project-grid { position:static!important; display:grid!important; }
+ .stream-ready .stream-item { position:static!important; width:auto!important; height:auto!important; margin:0!important; animation:none!important; transform:none!important; }
+ .stream-ready .project-card { min-height:420px; }
+}
