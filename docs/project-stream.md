@@ -7,15 +7,17 @@ Their screenshots, natural colors, demo/source URLs, IDs, category filters, and
 build notes are preserved. No external repository scripts run in the browser.
 
 Hover anywhere in the stream or focus a control/link to freeze every card in
-place; the original demo/source anchors open directly. Touch users can swipe
-large cards and tap the same links. The alternate project list exposes the full
+place; the original demo/source anchors open directly. Phones and tablets up to 900px can swipe
+large cards with readable text and 44px link targets. The alternate project list exposes the full
 build notes; services that link to a project switch to that list and reveal all
 projects before navigating. Reduced motion uses the complete static list.
 
 The stream wrapper retains the existing scroll tilt/scale/lift, while rail
 motion belongs to a separate child wrapper. Focus no longer flattens either
 large interactive wrapper, preventing buttons from moving between pointer-down
-and pointer-up. Other content retains its previous focus/scroll behavior.
+and pointer-up. The gallery entrance pivots from its top edge so the view control remains
+clickable when a long list scrolls into view. Other content retains its previous
+focus/scroll behavior.
 
 The useful ideas taken from `Swopnab/brag` are demo-first presentation, real
 project screenshots, concise summaries, and direct access to the actual build.

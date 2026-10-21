@@ -7,6 +7,7 @@
   const cards = [...(grid?.querySelectorAll('.project-card') || [])];
   if (!cards.length) return;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const compactLayout = window.matchMedia('(max-width:900px)');
   const root = document.createElement('div');
   root.className = 'project-stream';
   const top = document.createElement('div');
@@ -53,7 +54,8 @@
     view.setAttribute('aria-pressed', String(list));
     view.textContent = list ? 'Back to stream ↗' : 'Browse project list ↗';
     view.hidden = reducedMotion.matches;
-    hint.textContent = list ? 'Every project, with demo links and build notes.' : 'Hover to hold. Open a demo and look inside the build.';
+    hint.textContent = list ? 'Every project, with demo links and build notes.' : compactLayout.matches ? 'Swipe to explore. Open a demo and look inside the build.' : 'Hover to hold. Open a demo and look inside the build.';
+    stage.setAttribute('aria-label', list ? 'Project collection' : compactLayout.matches ? 'Swipeable project showcase' : 'Moving project showcase');
   }
   function layout() {
     const visible = items.filter((item, index) => {
@@ -78,6 +80,7 @@
   document.addEventListener('visibilitychange', () => root.classList.toggle('is-background', document.hidden));
   root.classList.add('stream-ready');
   setView(reducedMotion.matches || (location.hash.startsWith('#project-') && location.hash !== '#project-details'));
+  compactLayout.addEventListener('change', () => setView(list));
   reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) setView(true); else view.hidden = false; });
   layout();
 })();
